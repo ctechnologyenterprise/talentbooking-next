@@ -1,0 +1,44 @@
+.wrapperItems > .sidebarItem:hover {
+  background: white;
+
+  & .icon {
+    fill: #460465;
+  }
+
+  & .showText {
+    color: #460465;
+  }
+}
+
+.wrapperItems > .sidebarItem:focus {
+  background: white;
+
+  & .icon {
+    fill: #460465;
+  }
+
+  & .showText {
+    color: #460465;
+  }
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  fill: #fff;
+}
+
+.showText {
+  display: flex;
+  color: #fff;
+  margin-left: 15px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.hiddenText {
+  display: none;
+}
