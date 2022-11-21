@@ -1,15 +1,11 @@
-import React from "react";
-import clsx from "clsx";
-import useComponentVisible from "hooks/useComponentVisible";
-import { useMediaQuery } from "react-responsive";
 import ChevronDownIcon from "@public/svgs/ChevronDownIcon";
-import styles from "./DropDownList.module.css";
 import classNames from "classnames";
-import RoleIcon from "@public/svgs/RoleIcon";
+import clsx from "clsx";
+import useVisible from "hooks/useVisible";
+import styles from "./DropDownList.module.css";
 
 export type DropdownListProps = {
   className?: string;
-  isHeader?: boolean;
   options: DropdownListOption[];
   onSelect(value: DropdownListOption): void;
 };
@@ -22,53 +18,33 @@ export type DropdownListOption = {
 export const DropdownList = ({
   className,
   options,
-  isHeader,
   onSelect,
 }: DropdownListProps) => {
-  const isTabletAndMobile = useMediaQuery({ maxWidth: 768 });
-  const checkScreen = isHeader && isTabletAndMobile;
-  console.log(isHeader, "isHeader");
-  console.log(isTabletAndMobile, "isTabletAndMobile");
-
-  const { ref, isComponentVisible, setIsComponentVisible } =
-    useComponentVisible(false);
+  const toggleMenu = useVisible(false);
 
   const handleClick = (item: DropdownListOption) => {
     onSelect(item);
-    setIsComponentVisible(false);
+    toggleMenu.hide();
   };
 
   const wrapperItems = classNames(
     "flex py-3 items-center justify-center w-[100%] h-[46px] cursor-pointer focus:outline-none",
     {
-      ["bg-[#460465]"]: !isComponentVisible,
-      ["focus:bg-[#300345]"]: isComponentVisible,
-      ["px-3"]: checkScreen,
+      ["bg-[#460465]"]: !toggleMenu.visible,
+      ["focus:bg-[#300345]"]: toggleMenu.visible,
     }
   );
 
   return (
     <div className={clsx(styles.base, className)}>
-      {checkScreen ? (
-        <button
-          className={clsx(styles.profileIcon, wrapperItems)}
-          onClick={() => setIsComponentVisible(!isComponentVisible)}
-        >
-          <RoleIcon />
-        </button>
-      ) : (
-        <button
-          className={clsx(wrapperItems)}
-          onClick={() => setIsComponentVisible(!isComponentVisible)}
-        >
-          <div className={clsx("px-4", styles.label)}>Adrew Wang</div>
-          <div className={clsx("pr-4", styles.icon)}>
-            <ChevronDownIcon />
-          </div>
-        </button>
-      )}
+      <button className={clsx(wrapperItems)} onClick={toggleMenu.toggle}>
+        <div className={clsx("px-4", styles.label)}>Adrew Wang</div>
+        <div className={clsx("pr-4", styles.icon)}>
+          <ChevronDownIcon />
+        </div>
+      </button>
 
-      {isComponentVisible && (
+      {toggleMenu.visible && (
         <div className={styles.content}>
           {options.map((item: DropdownListOption, index) => {
             return (

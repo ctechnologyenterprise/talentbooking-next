@@ -1,23 +1,23 @@
-import Link from "next/link";
-import React, { Ref, RefObject, useCallback, useRef } from "react";
-import classNames from "classnames";
 import clsxm from "@libs/clsxm";
-import styles from "@styles/Sidebar.module.css";
-import HouseIcon from "@public/svgs/HouseIcon";
-import BookingIcon from "@public/svgs/BookingIcon";
-import TourIcon from "@public/svgs/TourIcon";
-import ShowIcon from "@public/svgs/ShowIcon";
-import FestivalIcon from "@public/svgs/FestivalIcon";
-import CalendarIcon from "@public/svgs/CalendarIcon";
-import ArtistIcon from "@public/svgs/ArtistIcon";
-import ContactIcon from "@public/svgs/ContactIcon";
-import PromoterIcon from "@public/svgs/PromoterIcon";
-import VenuesIcon from "@public/svgs/VenuesIcon";
 import AdministratorIcon from "@public/svgs/AdministratorIcon";
-import RoleIcon from "@public/svgs/RoleIcon";
+import ArtistIcon from "@public/svgs/ArtistIcon";
+import BookingIcon from "@public/svgs/BookingIcon";
+import CalendarIcon from "@public/svgs/CalendarIcon";
+import ContactIcon from "@public/svgs/ContactIcon";
+import FestivalIcon from "@public/svgs/FestivalIcon";
 import FinanceIcon from "@public/svgs/FinanceIcon";
-import RevenueTrackerIcon from "@public/svgs/RevenueTrackerIcon";
+import HouseIcon from "@public/svgs/HouseIcon";
 import OfficesIcon from "@public/svgs/OfficesIcon";
+import PromoterIcon from "@public/svgs/PromoterIcon";
+import RevenueTrackerIcon from "@public/svgs/RevenueTrackerIcon";
+import RoleIcon from "@public/svgs/RoleIcon";
+import ShowIcon from "@public/svgs/ShowIcon";
+import TourIcon from "@public/svgs/TourIcon";
+import VenuesIcon from "@public/svgs/VenuesIcon";
+import styles from "@styles/Sidebar.module.css";
+import classNames from "classnames";
+import Link from "next/link";
+import { Ref } from "react";
 
 export const sidebarItems = [
   { id: 1, label: "Dashboard", link: "/dashboard", icon: HouseIcon },
@@ -68,14 +68,14 @@ export default function Sidebar({
     }
   );
 
-  const siebarItemClass = classNames("flex py-3 md:py-4 pl-6");
+  const sidebarItemClass = classNames("flex py-3 md:py-4 pl-6");
   return (
     <div className={clsxm(styles.wrapperItems, sidebarWrapperClass)}>
       {sidebarItems.map(({ icon: Icon, ...menu }) => {
         return (
           <Link
             key={menu.id}
-            className={clsxm(styles.sidebarItem, siebarItemClass)}
+            className={clsxm(styles.sidebarItem, sidebarItemClass)}
             href={menu.link}
             ref={ref}
             onClick={onClick}

@@ -4,7 +4,6 @@ import FileIcon from "@public/svgs/FileIcon";
 import ListIcon from "@public/svgs/ListIcon";
 import classNames from "classnames";
 import Link from "next/link";
-import { ReactNode } from "react";
 import styles from "./CommonHead.module.css";
 
 type CommonHeadProps = {
@@ -12,7 +11,7 @@ type CommonHeadProps = {
   createNewText?: string;
   exportText?: string;
   canExport?: boolean;
-  cancreateItenerary?: boolean;
+  canCreateItenerary?: boolean;
   isCalendar?: boolean;
   isNormal?: boolean;
 };
@@ -22,7 +21,7 @@ const CommonHead = ({
   createNewText,
   exportText,
   canExport,
-  cancreateItenerary,
+  canCreateItenerary,
   isCalendar,
   isNormal,
 }: CommonHeadProps) => {
@@ -38,9 +37,10 @@ const CommonHead = ({
   const wrapperExportButton = classNames(
     "flex items-center justify-center space-x-1 w-[80px] h-full cursor-pointer hover:bg-[#e5d5ef]",
     {
-      ["w-[20%]"]: cancreateItenerary,
+      ["w-[20%]"]: canCreateItenerary,
     }
   );
+
   return (
     <div className="flex left-[80px] justify-between right-0 h-[56px] bg-common-head bg-no-repeat bg-[#f7f2fa] z-0">
       <div className="py-3 pl-[30px] pr-[15px] text-white font-extralight tracking-wide">
@@ -53,7 +53,7 @@ const CommonHead = ({
               <FileIcon />
             </div>
             <div className=" flex">
-              <p className="text-[#460465] font-normat">{createNewText}</p>
+              <p className="text-[#460465] font-normal">{createNewText}</p>
             </div>
           </Link>
         )}
@@ -64,27 +64,29 @@ const CommonHead = ({
               <ListIcon />
             </div>
             <div className=" flex">
-              <p className="text-[#460465] font-normat">Calendar List</p>
+              <p className="text-[#460465] font-normal">Calendar List</p>
             </div>
           </Link>
         )}
-        {cancreateItenerary && (
+
+        {canCreateItenerary && (
           <Link href="/" className={wrapperButtonClass}>
             <div className={clsxm("", styles.icon)}>
               <FileIcon />
             </div>
             <div className="flex justify-center">
-              <p className="text-[#460465] font-normat">New Itinerary</p>
+              <p className="text-[#460465] font-normal">New Itinerary</p>
             </div>
           </Link>
         )}
+
         {canExport && (
           <div className={wrapperExportButton}>
             <div className={styles.icon}>
               <DownloadIcon />
             </div>
             <div>
-              <p className="text-[#460465] font-normat">{exportText}</p>
+              <p className="text-[#460465] font-normal">{exportText}</p>
             </div>
           </div>
         )}
