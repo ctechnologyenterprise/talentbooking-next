@@ -6,7 +6,24 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        "250px": "250px",
+        "60%": "60%",
+      },
+      padding: {
+        "5rem": "5rem",
+        "3rem": "3rem",
+      },
+      zIndex: {
+        90: "90",
+        100: "100",
+        999: "999",
+      },
+      backgroundImage: {
+        "common-head": "url('/images/actionsbar-bg.jpg')",
+      },
+    },
   },
   plugins: [],
 };
