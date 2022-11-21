@@ -4,7 +4,6 @@ import FileIcon from "@public/svgs/FileIcon";
 import ListIcon from "@public/svgs/ListIcon";
 import classNames from "classnames";
 import Link from "next/link";
-import { ReactNode } from "react";
 import styles from "./CommonHead.module.css";
 
 type CommonHeadProps = {

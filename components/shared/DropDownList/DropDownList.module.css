@@ -21,7 +21,6 @@
   position: absolute;
   z-index: 10;
   top: 100%;
-  left: 0;
   background: var(--theme-main-primary);
   min-width: 160px;
   font-size: 14px;
@@ -36,6 +35,10 @@
 .label {
   color: var(--theme-font-white);
   font-weight: 200;
+}
+
+.profileIcon {
+  fill: var(--theme-main-primary);
 }
 
 .icon {
