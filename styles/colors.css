@@ -1,0 +1,29 @@
+:root {
+  /** New css variables for colors **/
+  /* Font */
+  --theme-font-black: #000000;
+
+  /* Common */
+  --theme-main-primary: #ffffff;
+  --theme-purple-common: #460465;
+  --theme-purple-common-focus: #300345;
+
+  /* Light theme */
+  /* Font */
+  --theme-font-white: #fff;
+
+  /* LIGHT THEME */
+
+  /* icon */
+  --theme-sidebar-icon-default: #fff;
+  --theme-sidebar-icon-hover-and-focus: #460465;
+
+  /* text */
+  --theme-text-sidebar-color: #fff;
+
+  &.dark {
+    /* DARK THEME */
+
+    /* Dark theme */
+  }
+}

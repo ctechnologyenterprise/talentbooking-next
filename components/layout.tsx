@@ -1,6 +1,11 @@
+import clsxm from "@libs/clsxm";
+import classNames from "classnames";
 import Head from "next/head";
 import Link from "next/link";
-import { ReactNode } from "react";
+import React from "react";
+import { ReactNode, useCallback, useRef, useState } from "react";
+import Header from "./header";
+import Sidebar from "./sidebar";
 
 type Props = {
   children?: ReactNode;
@@ -8,6 +13,25 @@ type Props = {
 };
 
 function Layout({ children, title = "Talent Booking" }: Props) {
+  const [toggleCollapse, setToggleCollapse] = useState(false);
+  const ref = useRef<HTMLAnchorElement>(null);
+  const layoutWrapperClass = classNames(
+    "fixed bg-white pt-[3rem] md:right-0 w-screen transition-all duration-300 z-10",
+    {
+      ["w-screen md:pl-[5rem]"]: !toggleCollapse,
+      ["md:w-[calc(100%_-_215px)] bg-neutral-900/40"]: toggleCollapse,
+    }
+  );
+
+  const handleSidebarToggle = useCallback(() => {
+    setToggleCollapse((pre) => !pre);
+  }, []);
+
+  const handleClick = useCallback(async () => {
+    if (document.hasFocus() && toggleCollapse === true) {
+      setToggleCollapse((pre) => !pre);
+    }
+  }, [toggleCollapse]);
   return (
     <div className="min-h-screen flex flex-col justify-between bg-gray-100">
       <Head>
@@ -20,22 +44,22 @@ function Layout({ children, title = "Talent Booking" }: Props) {
         <meta property="og:description" content="Talent booking application." />
       </Head>
 
-      <header>
-        <div className="bg-gray-800">
-          <nav className="max-w-3xl px-6 mx-auto h-12 flex items-center">
-            <Link
-              href="/"
-              className="no-underline hover:underline text-white hover:text-yellow-400"
-            >
-              Home
-            </Link>
-          </nav>
-        </div>
-      </header>
+      <Header
+        isCollapsed={toggleCollapse}
+        onToggleCollapsed={handleSidebarToggle}
+      />
+      <Sidebar
+        ref={ref}
+        onClick={handleClick}
+        isFocus={!toggleCollapse}
+        isCollapsed={toggleCollapse}
+      />
 
-      <main className="max-w-5xl px-6 mx-auto">{children}</main>
+      <main className={clsxm(toggleCollapse ? "main" : "", layoutWrapperClass)}>
+        {children}
+      </main>
     </div>
   );
 }
 
-export default Layout;
+export default React.forwardRef(Layout);
