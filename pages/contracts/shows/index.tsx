@@ -6,7 +6,7 @@ const Shows = () => {
       <CommonHead
         isNormal
         canExport
-        cancreateItenerary
+        canCreateItenerary
         exportText="Export"
         createNewText="New Contract"
         title="Shows"
