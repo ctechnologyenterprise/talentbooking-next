@@ -1,9 +1,8 @@
-import React from "react";
-import clsx from "clsx";
-import useComponentVisible from "hooks/useComponentVisible";
 import ChevronDownIcon from "@public/svgs/ChevronDownIcon";
-import styles from "./DropDownList.module.css";
 import classNames from "classnames";
+import clsx from "clsx";
+import useVisible from "hooks/useVisible";
+import styles from "./DropDownList.module.css";
 
 export type DropdownListProps = {
   className?: string;
@@ -21,34 +20,31 @@ export const DropdownList = ({
   options,
   onSelect,
 }: DropdownListProps) => {
-  const { ref, isComponentVisible, setIsComponentVisible } =
-    useComponentVisible(false);
+  const toggleMenu = useVisible(false);
 
   const handleClick = (item: DropdownListOption) => {
     onSelect(item);
-    setIsComponentVisible(false);
+    toggleMenu.hide();
   };
 
   const wrapperItems = classNames(
     "flex py-3 items-center justify-center w-[100%] h-[46px] cursor-pointer focus:outline-none",
     {
-      ["bg-[#460465]"]: !isComponentVisible,
-      ["focus:bg-[#300345]"]: isComponentVisible,
+      ["bg-[#460465]"]: !toggleMenu.visible,
+      ["focus:bg-[#300345]"]: toggleMenu.visible,
     }
   );
 
   return (
     <div className={clsx(styles.base, className)}>
-      <button
-        className={clsx(wrapperItems)}
-        onClick={() => setIsComponentVisible(!isComponentVisible)}
-      >
+      <button className={clsx(wrapperItems)} onClick={toggleMenu.toggle}>
         <div className={clsx("px-4", styles.label)}>Adrew Wang</div>
         <div className={clsx("pr-4", styles.icon)}>
           <ChevronDownIcon />
         </div>
       </button>
-      {isComponentVisible && (
+
+      {toggleMenu.visible && (
         <div className={styles.content}>
           {options.map((item: DropdownListOption, index) => {
             return (

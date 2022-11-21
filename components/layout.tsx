@@ -1,9 +1,7 @@
 import clsxm from "@libs/clsxm";
 import classNames from "classnames";
 import Head from "next/head";
-import Link from "next/link";
-import React from "react";
-import { ReactNode, useCallback, useRef, useState } from "react";
+import React, { ReactNode, useCallback, useRef, useState } from "react";
 import Header from "./header";
 import Sidebar from "./sidebar";
 
