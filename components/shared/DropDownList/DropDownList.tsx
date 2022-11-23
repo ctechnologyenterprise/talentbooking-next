@@ -1,11 +1,14 @@
-import ChevronDownIcon from "@public/svgs/ChevronDownIcon";
-import classNames from "classnames";
 import clsx from "clsx";
+import { useMediaQuery } from "react-responsive";
 import useVisible from "hooks/useVisible";
+import ChevronDownIcon from "@public/svgs/ChevronDownIcon";
 import styles from "./DropDownList.module.css";
+import classNames from "classnames";
+import RoleIcon from "@public/svgs/RoleIcon";
 
 export type DropdownListProps = {
   className?: string;
+  isHeader?: boolean;
   options: DropdownListOption[];
   onSelect(value: DropdownListOption): void;
 };
@@ -18,9 +21,12 @@ export type DropdownListOption = {
 export const DropdownList = ({
   className,
   options,
+  isHeader,
   onSelect,
 }: DropdownListProps) => {
   const toggleMenu = useVisible(false);
+  const isTabletAndMobile = useMediaQuery({ maxWidth: 768 });
+  const checkScreen = isHeader && isTabletAndMobile;
 
   const handleClick = (item: DropdownListOption) => {
     onSelect(item);
@@ -32,17 +38,27 @@ export const DropdownList = ({
     {
       ["bg-[#460465]"]: !toggleMenu.visible,
       ["focus:bg-[#300345]"]: toggleMenu.visible,
+      ["px-3"]: checkScreen,
     }
   );
 
   return (
     <div className={clsx(styles.base, className)}>
-      <button className={clsx(wrapperItems)} onClick={toggleMenu.toggle}>
-        <div className={clsx("px-4", styles.label)}>Adrew Wang</div>
-        <div className={clsx("pr-4", styles.icon)}>
-          <ChevronDownIcon />
-        </div>
-      </button>
+      {checkScreen ? (
+        <button
+          className={clsx(styles.profileIcon, wrapperItems)}
+          onClick={toggleMenu.toggle}
+        >
+          <RoleIcon />
+        </button>
+      ) : (
+        <button className={clsx(wrapperItems)} onClick={toggleMenu.toggle}>
+          <div className={clsx("px-4", styles.label)}>Adrew Wang</div>
+          <div className={clsx("pr-4", styles.icon)}>
+            <ChevronDownIcon />
+          </div>
+        </button>
+      )}
 
       {toggleMenu.visible && (
         <div className={styles.content}>

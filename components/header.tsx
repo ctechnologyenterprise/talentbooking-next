@@ -32,29 +32,28 @@ const Header = ({ isCollapsed, onToggleCollapsed }: headerProps) => {
   const handleSelect = useCallback(() => {
     console.log("signout");
   }, []);
-
   return (
     <div>
       <div className={clsxm(styles.wrapperItems, headerWrapperClass)}>
-        <div className="px-[15px]">
+        <div className="md:px-[15px] pl-[10px]">
           <FontAwesomeIcon
             onClick={onToggleCollapsed}
-            className="pl-2.5"
+            className="md:pl-2.5"
             icon={faBars}
             color="#fff"
             size="2x"
           />
         </div>
 
-        <Link
-          href="/"
-          className="block float-none leading-5 bg-[#460465] align-middle absolute left-[40%] py-[10px]"
-        >
-          <Image src="/el-logo.svg" alt="logo" width={200} height={2} />
-        </Link>
-
+        <a className="block float-none leading-5 bg-[#460465] align-middle absolute left-[50%] ml-[-44px]">
+          <Image src="/el-logo.svg" alt="logo" width={106} height={25} />
+        </a>
         <div className="absolute right-0">
-          <DropdownList onSelect={handleSelect} options={listItemDropDown} />
+          <DropdownList
+            isHeader
+            onSelect={handleSelect}
+            options={listItemDropDown}
+          />
         </div>
       </div>
     </div>
