@@ -19,8 +19,10 @@ const Offices = () => {
   return (
     <>
       <CommonHead isNormal createNewText="New Office" title="Offices" />
-      <div className="h-screen flex p-4">
-        <div className="w-full lg:w-8/12">Office details list</div>
+      <div className="h-screen flex p-4 mt-[5%]">
+        <div className="w-full lg:w-8/12">
+          <div className="text-center">Showing 0 of 0 items.</div>
+        </div>
         <div className="w-0 lg:w-4/12">
           <SearchAndOrder
             searchHolder="Search for a office"
