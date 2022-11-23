@@ -2,6 +2,7 @@ import clsxm from "@libs/clsxm";
 import DownloadIcon from "@public/svgs/DownloadIcon";
 import FileIcon from "@public/svgs/FileIcon";
 import ListIcon from "@public/svgs/ListIcon";
+import SaveIcon from "@public/svgs/SaveIcon";
 import classNames from "classnames";
 import Link from "next/link";
 import styles from "./CommonHead.module.css";
@@ -48,9 +49,12 @@ const CommonHead = ({
       </div>
       <div className={wrapperNewButton}>
         {isNormal && (
-          <Link href="/" className={wrapperButtonClass}>
+          <Link
+            href={createNewText === "New Role" ? "roles/form" : "/"}
+            className={wrapperButtonClass}
+          >
             <div className={clsxm(styles.icon)}>
-              <FileIcon />
+              {createNewText === "Save" ? <SaveIcon /> : <FileIcon />}
             </div>
             <div className=" flex">
               <p className="text-[#460465] font-normal">{createNewText}</p>
