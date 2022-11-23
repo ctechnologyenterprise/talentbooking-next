@@ -16,7 +16,7 @@ function Layout({ children, title = "Talent Booking" }: Props) {
   const layoutWrapperClass = classNames(
     "fixed bg-white pt-[3rem] md:right-0 w-screen transition-all duration-300 z-10",
     {
-      ["w-screen pl-[5rem]"]: !toggleCollapse,
+      ["w-screen md:pl-[5rem]"]: !toggleCollapse,
       ["md:w-[calc(100%_-_215px)] bg-neutral-900/40"]: toggleCollapse,
     }
   );
