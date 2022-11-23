@@ -21,7 +21,7 @@ module.exports = {
         999: "999",
       },
       backgroundImage: {
-        "common-head": "url('/images/actionsbar-bg.jpg')",
+        "common-head": "url('/img/structure/actionsbar-bg.jpg')",
       },
     },
   },
