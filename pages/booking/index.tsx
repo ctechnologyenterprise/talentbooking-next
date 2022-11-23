@@ -81,8 +81,8 @@ const Booking = () => {
         title="Bookings"
       />
 
-      <div className="px-[30px]">
-        <div className="flex w-[30%] justify-evenly items-center">
+      <div className="pt-[5%] px-[30px] ">
+        <div className="hidden md:flex w-[30%] justify-evenly items-center">
           <div className="cursor-pointer">
             <ChevronLeftIcon />
           </div>
@@ -136,7 +136,7 @@ const Booking = () => {
           </div>
         </div>
         <div>
-          <table className="table-auto border-separate [border-spacing:0.15rem] w-[100%]">
+          <table className="table-fixed border-separate [border-spacing:0.15rem] w-[100%]">
             <thead>
               <tr className="font-normal">
                 {tableHeader.map((i, k) => {

@@ -43,7 +43,7 @@ const CommonHead = ({
   );
 
   return (
-    <div className="flex left-[80px] justify-between right-0 h-[56px] bg-common-head bg-no-repeat bg-[#f7f2fa] z-0">
+    <div className="md:flex hidden md:fixed left-[80px] justify-between right-0 h-[56px] bg-common-head bg-no-repeat bg-[#f7f2fa] z-999">
       <div className="py-3 pl-[30px] pr-[15px] text-white font-extralight tracking-wide">
         <h1 className="text-2xl font-extralight">{title}</h1>
       </div>
