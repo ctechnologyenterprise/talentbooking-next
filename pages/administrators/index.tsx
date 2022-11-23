@@ -4,7 +4,7 @@ const Administrators = () => {
   return (
     <>
       <CommonHead isNormal createNewText="New Account" title="Accounts" />
-      <div className="h-screen">Accounts</div>;
+      <div className="h-screen">Accounts</div>
     </>
   );
 };

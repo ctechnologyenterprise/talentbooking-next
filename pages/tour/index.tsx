@@ -4,7 +4,7 @@ const Tour = () => {
   return (
     <>
       <CommonHead isNormal createNewText="New Tour" title="Tours" />
-      <div className="h-screen">Tour</div>;
+      <div className="h-screen">Tour</div>
     </>
   );
 };

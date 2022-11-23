@@ -81,9 +81,9 @@ const Booking = () => {
         title="Bookings"
       />
 
-      <div className="px-[30px] w-screen absolute">
+      <div className="px-[30px]">
         <div className="flex w-[30%] justify-evenly items-center">
-          <div>
+          <div className="cursor-pointer">
             <ChevronLeftIcon />
           </div>
           <div className=" pb-5">
@@ -132,11 +132,11 @@ const Booking = () => {
             </section>
           </div>
           <div>
-            <ChevronRightIcon />
+            <ChevronRightIcon className="cursor-pointer" />
           </div>
         </div>
         <div>
-          <table className="table-auto border-separate [border-spacing:0.15rem] w-[94%]">
+          <table className="table-auto border-separate [border-spacing:0.15rem] w-[100%]">
             <thead>
               <tr className="font-normal">
                 {tableHeader.map((i, k) => {
@@ -185,7 +185,7 @@ const Booking = () => {
         </div>
         <div className="flex w-[30%] justify-evenly items-center">
           <div>
-            <ChevronLeftIcon />
+            <ChevronLeftIcon className="cursor-pointer" />
           </div>
           <div className=" pb-5">
             <section className="static mt-[20px] ">
@@ -233,7 +233,7 @@ const Booking = () => {
             </section>
           </div>
           <div>
-            <ChevronRightIcon />
+            <ChevronRightIcon className="cursor-pointer" />
           </div>
         </div>
       </div>

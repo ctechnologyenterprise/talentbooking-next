@@ -4,7 +4,7 @@ const Offices = () => {
   return (
     <>
       <CommonHead isNormal createNewText="New Office" title="Offices" />
-      <div className="h-screen">Offices</div>;
+      <div className="h-screen">Offices</div>
     </>
   );
 };

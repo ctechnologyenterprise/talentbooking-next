@@ -10,7 +10,7 @@ const Promoters = () => {
         createNewText="New Promoter"
         title="Promoters"
       />
-      <div className="h-screen">Promoters</div>;
+      <div className="h-screen">Promoters</div>
     </>
   );
 };

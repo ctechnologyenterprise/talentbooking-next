@@ -4,7 +4,7 @@ const Revenue = () => {
   return (
     <>
       <CommonHead canExport exportText="Export" title="Revenue Tracker" />
-      <div className="h-screen">Revenue Tracker</div>;
+      <div className="h-screen">Revenue Tracker</div>
     </>
   );
 };

@@ -1,5 +1,9 @@
 const ContractsForms = () => {
-  return <div>ContractsForms</div>;
+  return (
+    <>
+      <div>ContractsForms</div>
+    </>
+  );
 };
 
 export default ContractsForms;

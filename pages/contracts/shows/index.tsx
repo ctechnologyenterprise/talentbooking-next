@@ -11,7 +11,7 @@ const Shows = () => {
         createNewText="New Contract"
         title="Shows"
       />
-      <div className="h-screen">Shows</div>;
+      <div className="h-screen">Shows</div>
     </>
   );
 };

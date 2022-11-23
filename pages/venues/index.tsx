@@ -10,7 +10,7 @@ const Venues = () => {
         createNewText="New Venue"
         title="Venues"
       />
-      <div className="h-screen">Venues</div>;
+      <div className="h-screen">Venues</div>
     </>
   );
 };

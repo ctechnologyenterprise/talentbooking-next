@@ -9,7 +9,7 @@ const Calendars = () => {
         createNewText="New Contract"
         title="Calendar"
       />
-      <div className="h-screen">Calendar</div>;
+      <div className="h-screen">Calendar</div>
     </>
   );
 };

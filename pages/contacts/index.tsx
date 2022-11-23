@@ -10,7 +10,7 @@ const Contact = () => {
         createNewText="New Contact"
         title="Contacts"
       />
-      <div className="h-screen">Contacts</div>;
+      <div className="h-screen">Contacts</div>
     </>
   );
 };
