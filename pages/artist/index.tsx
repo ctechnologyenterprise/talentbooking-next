@@ -5,7 +5,7 @@ const Artist = () => {
   return (
     <>
       <CommonHead isNormal createNewText="New Artist" title="Artists" />
-      <div className="h-screen">
+      <div className="mt-[5%]">
         <ArtistDetail />
       </div>
     </>

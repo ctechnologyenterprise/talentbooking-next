@@ -17,8 +17,9 @@ function Layout({ children, title = "Talent Booking" }: Props) {
   const layoutWrapperClass = classNames(
     " bg-white pt-[3rem] md:right-0 w-screen transition-all duration-300 z-10",
     {
-      ["w-screen pl-[5rem]"]: !toggleSidebar.visible,
-      ["fixed  md:w-[calc(100%_-_215px)] bg-neutral-900/40"]: toggleSidebar.visible,
+      ["w-screen md:pl-[5rem]"]: !toggleSidebar.visible,
+      ["fixed  md:w-[calc(100%_-_215px)] bg-neutral-900/40"]:
+        toggleSidebar.visible,
     }
   );
 
@@ -27,7 +28,7 @@ function Layout({ children, title = "Talent Booking" }: Props) {
       toggleSidebar.toggle();
     }
   }, [toggleSidebar]);
-  
+
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
@@ -54,7 +55,12 @@ function Layout({ children, title = "Talent Booking" }: Props) {
         />
       </div>
 
-      <main className={clsxm(toggleSidebar.visible ? "main" : "", layoutWrapperClass)}>
+      <main
+        className={clsxm(
+          toggleSidebar.visible ? "main" : "",
+          layoutWrapperClass
+        )}
+      >
         {children}
       </main>
     </div>

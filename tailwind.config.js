@@ -23,6 +23,9 @@ module.exports = {
       backgroundImage: {
         "common-head": "url('/img/structure/actionsbar-bg.jpg')",
       },
+      colors: {
+        "common-purple": "#460465",
+      },
     },
   },
   plugins: [],

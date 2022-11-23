@@ -17,6 +17,7 @@ import VenuesIcon from "@public/svgs/VenuesIcon";
 import styles from "@styles/Sidebar.module.css";
 import classNames from "classnames";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Ref } from "react";
 
 export const sidebarItems = [
@@ -60,10 +61,11 @@ export default function Sidebar({
   onClick,
   ref,
 }: sidebarProps) {
+  const router = useRouter();
   const sidebarWrapperClass = classNames(
     "md:block md:fixed h-full min-h-screen bg-[#2f2732] pt-[50px] mb-0 z-20 overflow-y-scroll transition-all duration-300",
     {
-      ["md:w-20 w-0"]: !isCollapsed || isFocus,
+      ["hidden md:w-20 w-0"]: !isCollapsed || isFocus,
       ["w-[215px]"]: isCollapsed,
     }
   );
@@ -75,7 +77,13 @@ export default function Sidebar({
         return (
           <Link
             key={menu.id}
-            className={clsxm(styles.sidebarItem, sidebarItemClass)}
+            className={clsxm(
+              router.pathname == menu.link
+                ? "bg-white fill-common-purple text-common-purple"
+                : "bg-[#2f2732] fill-white text-white",
+              styles.sidebarItem,
+              sidebarItemClass
+            )}
             href={menu.link}
             ref={ref}
             onClick={onClick}
