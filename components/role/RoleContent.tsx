@@ -4,7 +4,7 @@ import RolePermissions from "./form/RolePermissions";
 const RoleContent = () => {
   return (
     <>
-      <div className="flex w-100 ml-10 mt-10">
+      <div className="flex w-100 ml-10">
         <RolePermissions />
         <RoleDetails />
       </div>

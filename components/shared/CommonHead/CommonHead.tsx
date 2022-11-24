@@ -15,6 +15,7 @@ type CommonHeadProps = {
   canCreateItenerary?: boolean;
   isCalendar?: boolean;
   isNormal?: boolean;
+  href?: string;
 };
 
 const CommonHead = ({
@@ -25,6 +26,7 @@ const CommonHead = ({
   canCreateItenerary,
   isCalendar,
   isNormal,
+  href,
 }: CommonHeadProps) => {
   const wrapperNewButton = classNames("flex aligns-center pr-2", {
     ["justify-end"]: !canExport,
@@ -43,16 +45,13 @@ const CommonHead = ({
   );
 
   return (
-    <div className="md:flex hidden md:fixed left-[80px] justify-between right-0 h-[56px] bg-common-head bg-no-repeat bg-[#f7f2fa] z-999">
+    <div className="lg:flex hidden md:fixed left-[80px] justify-between right-0 h-[56px] bg-common-head bg-no-repeat bg-[#f7f2fa] z-999">
       <div className="py-3 pl-[30px] pr-[15px] text-white font-extralight tracking-wide">
         <h1 className="text-2xl font-extralight">{title}</h1>
       </div>
       <div className={wrapperNewButton}>
         {isNormal && (
-          <Link
-            href={createNewText === "New Role" ? "roles/form" : "/"}
-            className={wrapperButtonClass}
-          >
+          <Link href={href || "/"} className={wrapperButtonClass}>
             <div className={clsxm(styles.icon)}>
               {createNewText === "Save" ? <SaveIcon /> : <FileIcon />}
             </div>

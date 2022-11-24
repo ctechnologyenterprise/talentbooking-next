@@ -4,9 +4,14 @@ import EditIcon from "@public/svgs/EditIcon";
 
 const Roles = () => {
   return (
-    <div className="w-100 h-screen">
-      <CommonHead isNormal createNewText="New Role" title="Roles" />
-      <div className="w-11/12 h-14 bg-[#f7f2fa] m-auto mt-5 flex">
+    <>
+      <CommonHead
+        isNormal
+        createNewText="New Role"
+        title="Roles"
+        href="/roles/form"
+      />
+      <div className="w-11/12 h-14 bg-[#f7f2fa] m-auto mt-20 flex">
         <Link href="roles/form" className="ml-5 h-full w-15 flex items-center">
           <div className="text-[#7f5295]">root</div>
         </Link>
@@ -38,7 +43,7 @@ const Roles = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

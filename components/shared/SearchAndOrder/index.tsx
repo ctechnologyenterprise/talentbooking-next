@@ -29,7 +29,9 @@ export const SearchAndOrder = ({
 }: Props) => {
   return (
     <div>
-      <h3 className="mb-4 ml-2">Search and Order</h3>
+      <h3 className="mb-4 ml-2 text-[#460465] text-2xl font-extralight">
+        Search and Order
+      </h3>
       <div className="flex w-full">
         <label
           htmlFor="Search"

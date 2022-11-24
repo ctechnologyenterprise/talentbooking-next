@@ -23,7 +23,7 @@ const RolePermissions = () => {
     "Booking",
   ];
   return (
-    <div className="w-1/3 mr-5">
+    <div className="w-1/3 mr-5 mt-20">
       <div className="bg-[#7f5295] h-10 py-2 pl-5">
         <div className="text-white">Role Permissions</div>
       </div>
