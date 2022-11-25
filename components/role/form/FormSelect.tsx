@@ -1,3 +1,5 @@
+import { InputBox } from "@components/shared/InputBox";
+
 type FormSelect = { item: string };
 
 const FormSelect = ({ item }: FormSelect) => {
@@ -7,109 +9,27 @@ const FormSelect = ({ item }: FormSelect) => {
         <div className="text-white">{item}</div>
       </div>
       {["Booking", "Festival", "Pencil"].includes(item) && (
-        <div className="h-10 py-2 pl-5 border border-b-0 border-slate-400 flex">
-          <label className="text-2xl text-slate-400">*</label>
-          <input
-            type="checkbox"
-            className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-          />
-        </div>
+        <InputBox inputName="*" />
       )}
-      <div className="h-10 py-2 pl-5 border border-b-0 border-slate-400 flex ">
-        <label className="text-base text-slate-400">create</label>
-        <input
-          type="checkbox"
-          className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-        />
-      </div>
-      <div className="h-10 py-2 pl-5 border border-b-0 border-slate-400 flex">
-        <label className="text-base text-slate-400">read</label>
-        <input
-          type="checkbox"
-          className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border  border-slate-400 "
-        />
-      </div>
-      <div className="h-10 py-2 pl-5 border border-b-0 border-slate-400 flex ">
-        <label className="text-base text-slate-400">update</label>
-        <input
-          type="checkbox"
-          className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-        />
-      </div>
-      <div className="h-10 py-2 pl-5 border border-b-0 border-slate-400 flex ">
-        <label className="text-base text-slate-400">delete</label>
-        <input
-          type="checkbox"
-          className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-        />
-      </div>
+      <InputBox inputName="create" />
+      <InputBox inputName="read" />
+      <InputBox inputName="update" />
+      <InputBox inputName="delete" />
       {!["Booking", "Festival", "Pencil"].includes(item) && (
-        <div className="h-10 py-2 pl-5 border border-slate-400 flex">
-          <label className="text-2xl text-slate-400">*</label>
-          <input
-            type="checkbox"
-            className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-          />
-        </div>
+        <InputBox inputName="*" borderBottom={false} />
       )}
 
       {["Booking", "Festival", "Pencil"].includes(item) && (
-        <div className="h-10 py-2 pl-5 border border-b-0 border-slate-400 flex">
-          <label className="text-base text-slate-400">export</label>
-          <input
-            type="checkbox"
-            className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-          />
-        </div>
+        <InputBox inputName="export" />
       )}
       {item === "Pencil" && (
         <div>
-          <div className="h-10 py-2 pl-5 border border-b-0 border-slate-400 flex">
-            <label className="text-base text-slate-400">convert</label>
-            <input
-              type="checkbox"
-              className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-            />
-          </div>
-          <div className="h-10 py-2 pl-5 border border-b-0 border-slate-400 flex">
-            <label className="text-base text-slate-400">readTypePencil</label>
-            <input
-              type="checkbox"
-              className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-            />
-          </div>
-          <div className="h-10 py-2 pl-5 border border-b-0 border-slate-400 flex">
-            <label className="text-base text-slate-400">readTypeRejected</label>
-            <input
-              type="checkbox"
-              className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-            />
-          </div>
-          <div className="h-10 py-2 pl-5 border border-b-0 border-slate-400 flex">
-            <label className="text-base text-slate-400">readTypeBlock</label>
-            <input
-              type="checkbox"
-              className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-            />
-          </div>
-          <div className="h-10 py-2 pl-5 border border-b-0 border-slate-400 flex">
-            <label className="text-base text-slate-400">
-              readTypeConfirmed
-            </label>
-            <input
-              type="checkbox"
-              className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-            />
-          </div>
-          <div className="h-10 py-2 pl-5 border border-slate-400 flex">
-            <label className="text-base text-slate-400">
-              readTypeManagement
-            </label>
-            <input
-              type="checkbox"
-              className="accent-[#7f5295] ml-auto mr-3 w-6 h-6 hover:bg-[#7f5295] checked:bg-[#7f5295] border border-slate-400 "
-            />
-          </div>
+          <InputBox inputName="convert" />
+          <InputBox inputName="readTypePencil" />
+          <InputBox inputName="readTypeRejected" />
+          <InputBox inputName="readTypeBlock" />
+          <InputBox inputName="readTypeConfirmed" />
+          <InputBox inputName="readTypeManagement" borderBottom={false} />
         </div>
       )}
     </div>

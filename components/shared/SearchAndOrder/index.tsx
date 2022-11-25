@@ -35,7 +35,7 @@ export const SearchAndOrder = ({
       <div className="flex w-full">
         <label
           htmlFor="Search"
-          className="inline-flex items-center px-3 text-sm text-gray-900 border border-r-0 border-[#dddddd]"
+          className="w-1/5 inline-flex items-center px-3 text-sm text-[#999999] border border-[#dddddd]"
         >
           {searchLabel}
         </label>
@@ -49,7 +49,6 @@ export const SearchAndOrder = ({
       <div className="flex">
         <Select
           className="w-full"
-          closeMenuOnSelect={false}
           options={options1}
           onChange={onSelect1}
           styles={{
@@ -86,7 +85,6 @@ export const SearchAndOrder = ({
         />
         <Select
           className="w-full"
-          closeMenuOnSelect={false}
           options={options2}
           defaultValue={options2[0]}
           onChange={onSelect2}

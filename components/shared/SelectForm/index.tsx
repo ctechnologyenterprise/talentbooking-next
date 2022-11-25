@@ -1,22 +1,28 @@
 import Select from "react-select";
 
+export type Props = {
+  selectLabel: string;
+  onSelect(value: any): void;
+  options: ListOption[];
+  icon?: boolean;
+};
+
 export type ListOption = {
   label: string;
   value: string;
 };
 
-export const AccountSelect = () => {
-  const options = [
-    { value: "Root", label: "Root" },
-    { value: "A", label: "A" },
-  ];
+export const SelectForm = ({ selectLabel, onSelect, options, icon }: Props) => {
   return (
-    <div className="relative flex border-[1px] font-light text-[14px] text-[#999] items-center border-[#dddd] border-solid mt-5">
-      <div className="px-3 w-2/5">Account Type</div>
+    <div className="relative flex border-[1px] text-[#999] items-center border-[#dddd] border-solid ">
+      <label className="w-2/5 pl-3 text-base flex">
+        {selectLabel}{" "}
+        {icon && <div className="text-[red] text-2xl ml-1 font-thin">*</div>}
+      </label>
       <Select
-        placeholder="Select..."
-        className="w-full"
+        className="w-3/5"
         options={options}
+        onChange={onSelect}
         styles={{
           control: (baseStyles, state) => ({
             ...baseStyles,

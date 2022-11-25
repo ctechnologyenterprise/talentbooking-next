@@ -1,3 +1,5 @@
+import classNames from "classnames";
+import { useState } from "react";
 import Select from "react-select";
 
 export type ListOption = {
@@ -6,21 +8,30 @@ export type ListOption = {
 };
 
 export const StatusSelect = () => {
-  const options2 = [
-    { value: "asc", label: "Ascending" },
-    { value: "desc", label: "Descending" },
+  const options = [
+    { value: "enabled", label: "Enabled" },
+    { value: "disabled", label: "Disabled" },
   ];
+
+  const [status, setStatus] = useState<string>("enabled");
+
+  let a = true;
   return (
     <div className="mt-20 base:w-full lg:w-96">
       <div className="flex">
-        <div className="bg-[#8ac748] w-40 flex justify-center text-white mr-0.5">
+        <div
+          className={classNames("w-2/5 flex justify-center text-white mr-0.5", {
+            ["bg-[#8ac748]"]: status === "enabled",
+            ["bg-[red]"]: status === "disabled",
+          })}
+        >
           <div className="mt-2">Status</div>
         </div>
         <Select
-          className="w-full bg-[#8ac748] text-white"
-          closeMenuOnSelect={false}
-          options={options2}
-          defaultValue={options2[0]}
+          className="lg:w-full w-3/5 bg-[#8ac748] text-white"
+          options={options}
+          defaultValue={options[0]}
+          onChange={(val) => val && setStatus(val.value)}
           styles={{
             control: (baseStyles, state) => ({
               ...baseStyles,
@@ -34,7 +45,7 @@ export const StatusSelect = () => {
               "&:hover": {
                 borderLeftColor: "#ddd",
               },
-              backgroundColor: state.isFocused ? "#8ac748" : "",
+              backgroundColor: status === "enabled" ? "#8ac748" : "red",
               borderLeftColor: "#ddd",
               borderBottomColor: "#ddd",
               boxShadow: state.isFocused

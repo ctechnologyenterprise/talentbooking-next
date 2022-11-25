@@ -1,5 +1,4 @@
 import AdministratorsContent from "@components/administrators/administratorsContent";
-import RoleContent from "@components/role/RoleContent";
 import CommonHead from "@components/shared/CommonHead/CommonHead";
 
 const Form = () => {

@@ -1,5 +1,6 @@
+import { StatusSelect } from "../shared/Status/statusSelect";
+import { InputText } from "@components/shared/InputText";
 import { AccountSelect } from "./form/accountSelect";
-import { StatusSelect } from "./form/statusSelect";
 
 const AdministratorsContent = () => {
   return (
@@ -7,65 +8,31 @@ const AdministratorsContent = () => {
       <div className="base:w-full w-11/12 base:ml-0 lg:ml-10 m-auto">
         <div className="lg:flex base:block w-full">
           <StatusSelect />
-          <div className="flex base:w-full lg:w-3/5 mt-20 base:ml-0 lg:ml-20">
+          <div className="flex base:w-full lg:w-3/5 lg:mt-20 mt-5 base:ml-0 lg:ml-20">
             <label
               htmlFor="Search"
-              className="inline-flex items-center px-3 text-base text-slate-400 border border-r-1 border-[#dddddd]"
+              className="lg:w-1/5 w-2/5 inline-flex items-center px-3 text-base text-slate-400 border border-r-1 border-[#dddddd]"
             >
               Associated Artists
             </label>
             <input
               type="text"
-              className="rounded-none border border-[#dddddd] border-l-0 text-gray-900 block flex-1 min-w-0 w-full text-sm p-2.5 focus:text-[#460465] bg-[#f7f2fa] focus:shadow-[inset_0_0_8px_rgb(70,4,101,0.1)] focus:outline-0"
+              className="rounded-none border border-[#dddddd] border-l-0 text-gray-900 block flex-1 min-w-0 base:w-3/5 lg:w-4/5 text-sm p-2.5 focus:text-[#460465] bg-[#f7f2fa] focus:shadow-[inset_0_0_8px_rgb(70,4,101,0.1)] focus:outline-0"
             />
           </div>
         </div>
         <div className="lg:flex base:block">
           <div className="base:w-full lg:w-1/2 mt-5">
-            <div className="bg-[#7f5295] h-10 py-2 pl-5">
+            <div className="bg-[#7f5295] h-10 py-2 pl-5 mb-5">
               <div className="text-white font-light">Role Permissions</div>
             </div>
-            <div className="flex mt-5">
-              <label className="text-sm text-slate-400 flex w-2/5 h-10 py-2 pl-5  border  border-[#dddddd] pb-8">
-                First Name
-                <div className="text-[red] text-xl mt-0.2 ml-1">*</div>
-              </label>
-              <input
-                type="text"
-                className="rounded-none border border-[#dddddd] border-l-0 text-gray-900 block flex-1 min-w-0 w-full text-sm p-2.5 focus:text-[#460465] bg-[#f7f2fa] focus:shadow-[inset_0_0_8px_rgb(70,4,101,0.1)] focus:outline-0"
-              />
-            </div>
-            <div className="flex">
-              <label className="text-sm text-slate-400 flex w-2/5 h-10 py-2 pl-5 border-t-0 border border-[#dddddd] pb-8">
-                Last Name
-              </label>
-              <input
-                type="text"
-                className="rounded-none border border-[#dddddd] border-l-0 border-t-0 text-gray-900 block flex-1 min-w-0 w-full text-sm p-2.5 focus:text-[#460465] bg-[#f7f2fa] focus:shadow-[inset_0_0_8px_rgb(70,4,101,0.1)] focus:outline-0"
-              />
-            </div>
-            <div className="flex">
-              <label className="text-sm text-slate-400 flex w-2/5 h-10 py-2 pl-5  border-t-0 border border-[#dddddd] pb-8">
-                Mobile
-              </label>
-              <input
-                type="text"
-                className="rounded-none border border-[#dddddd] border-l-0 border-t-0 text-gray-900 block flex-1 min-w-0 w-full text-sm p-2.5 focus:text-[#460465] bg-[#f7f2fa] focus:shadow-[inset_0_0_8px_rgb(70,4,101,0.1)] focus:outline-0"
-              />
-            </div>
-            <div className="bg-[#7f5295] h-10 py-2 pl-5 mt-10">
+            <InputText inputName={"First Name "} icon={true} />
+            <InputText inputName={"Last Name "} />
+            <InputText inputName={"Mobile "} />
+            <div className="bg-[#7f5295] h-10 py-2 pl-5 mt-10 mb-5">
               <div className="text-white font-light">Login Details</div>
             </div>
-            <div className="flex mt-5">
-              <label className="text-sm text-slate-400 flex w-2/5 h-10 py-2 pl-5  border border-[#dddddd] pb-8">
-                Email
-                <div className="text-[red] text-xl mt-0.2 ml-1">*</div>
-              </label>
-              <input
-                type="text"
-                className="rounded-none border border-[#dddddd] border-l-0 text-gray-900 block flex-1 min-w-0 w-full text-sm p-2.5 focus:text-[#460465] bg-[#f7f2fa] focus:shadow-[inset_0_0_8px_rgb(70,4,101,0.1)] focus:outline-0"
-              />
-            </div>
+            <InputText inputName={"Email "} icon={true} />
             <div className="h-10 py-2 pl-5 border border-t-0 border-[#dddddd] flex">
               <label className="text-sm text-slate-400">
                 Send Email Invite
@@ -121,6 +88,7 @@ const AdministratorsContent = () => {
                 A
               </div>
             </div>
+
             <AccountSelect />
             <div className="h-20" />
           </div>

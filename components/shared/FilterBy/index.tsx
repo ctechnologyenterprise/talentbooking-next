@@ -43,7 +43,6 @@ export const FilterBy = ({
         <Select
           isMulti
           className="w-full"
-          closeMenuOnSelect={false}
           options={countries}
           onChange={onSelect}
           styles={{

@@ -27,7 +27,7 @@ export const sidebarItems = [
   { id: 4, label: "Shows", link: "/contracts/shows", icon: ShowIcon },
   { id: 5, label: "Festivals", link: "/festivals", icon: FestivalIcon },
   { id: 6, label: "Calendar", link: "/calendar", icon: CalendarIcon },
-  { id: 7, label: "Artists", link: "/artist", icon: ArtistIcon },
+  { id: 7, label: "Artists", link: "/artists", icon: ArtistIcon },
   { id: 8, label: "Address Book", link: "/contacts", icon: ContactIcon },
   { id: 9, label: "Promoter", link: "/promoters", icon: PromoterIcon },
   { id: 10, label: "Venues", link: "/venues", icon: VenuesIcon },
