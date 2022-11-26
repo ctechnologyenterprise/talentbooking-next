@@ -15,7 +15,7 @@ function Layout({ children, title = "Talent Booking" }: Props) {
   const toggleSidebar = useVisible(false);
   const ref = useRef<HTMLAnchorElement>(null);
   const layoutWrapperClass = classNames(
-    " bg-white pt-[3rem] md:right-0 w-screen transition-all duration-300 z-10",
+    "bg-white pt-[3rem] md:right-0 w-screen transition-all duration-300 z-10 mb-[100px]",
     {
       ["w-screen md:pl-[5rem]"]: !toggleSidebar.visible,
       ["fixed  md:w-[calc(100%_-_215px)] bg-neutral-900/40"]:

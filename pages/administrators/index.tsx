@@ -1,9 +1,11 @@
-import CommonHead from "@components/shared/CommonHead/CommonHead";
-import Link from "next/link";
-import EditIcon from "@public/svgs/EditIcon";
+import ButtonLink from "@components/ButtonLink";
+import Content from "@components/Content";
 import { SearchAndOrder } from "@components/shared/SearchAndOrder";
-import { useState } from "react";
 import CircleCheckIcon from "@public/svgs/CircleCheckIcon";
+import EditIcon from "@public/svgs/EditIcon";
+import FileIcon from "@public/svgs/FileIcon";
+import Link from "next/link";
+import { useCallback, useState } from "react";
 
 const Administrators = () => {
   const [searchOrderInfo, setSearchOrderInfo] = useState<any>({
@@ -12,14 +14,18 @@ const Administrators = () => {
     option2: { value: "asc", label: "Ascending" },
   });
 
-  return (
-    <>
-      <CommonHead
-        isNormal
-        createNewText="New Account"
-        title="Accounts"
-        href="/administrators/form"
+  const headerButtons = useCallback(() => {
+    return (
+      <ButtonLink
+        linkTo="/administrators/form"
+        icon={<FileIcon />}
+        label="New Contract"
       />
+    );
+  }, []);
+
+  return (
+    <Content title="New Account" leftContent={headerButtons}>
       <div className="lg:mt-16 mt-0"></div>
       <div className="base:block xl:flex">
         <div className="base:w-full xl:w-3/5 base:h-fit lg:h-14 bg-[#f7f2fa] base:ml-0 lg:ml-5 mr-5 mt-5 flex ">
@@ -102,7 +108,7 @@ const Administrators = () => {
           </div>
         </div>
       </div>
-    </>
+    </Content>
   );
 };
 

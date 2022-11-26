@@ -1,12 +1,24 @@
 import AdministratorsContent from "@components/administrators/administratorsContent";
-import CommonHead from "@components/shared/CommonHead/CommonHead";
+import ButtonLink from "@components/ButtonLink";
+import Content from "@components/Content";
+import SaveIcon from "@public/svgs/SaveIcon";
+import { useCallback } from "react";
 
 const Form = () => {
+  const headerButtons = useCallback(() => {
+    return (
+      <ButtonLink
+        linkTo="/administrators/form"
+        icon={<SaveIcon />}
+        label="Save"
+      />
+    );
+  }, []);
+
   return (
-    <div className="w-100">
-      <CommonHead isNormal createNewText="Save" title="New Roles" />
+    <Content title="New roles" leftContent={headerButtons}>
       <AdministratorsContent />
-    </div>
+    </Content>
   );
 };
 

@@ -1,16 +1,19 @@
-import CommonHead from "@components/shared/CommonHead/CommonHead";
-import Link from "next/link";
+import ButtonLink from "@components/ButtonLink";
+import Content from "@components/Content";
 import EditIcon from "@public/svgs/EditIcon";
+import FileIcon from "@public/svgs/FileIcon";
+import Link from "next/link";
+import { useCallback } from "react";
 
 const Roles = () => {
+  const headerButtons = useCallback(() => {
+    return (
+      <ButtonLink linkTo="/roles/form" icon={<FileIcon />} label="New role" />
+    );
+  }, []);
+
   return (
-    <>
-      <CommonHead
-        isNormal
-        createNewText="New Role"
-        title="Roles"
-        href="/roles/form"
-      />
+    <Content title="Roles" leftContent={headerButtons}>
       <div className="w-11/12 h-14 bg-[#f7f2fa] m-auto mt-20 flex">
         <Link href="roles/form" className="ml-5 h-full w-15 flex items-center">
           <div className="text-[#7f5295]">root</div>
@@ -43,7 +46,7 @@ const Roles = () => {
           </div>
         </div>
       </div>
-    </>
+    </Content>
   );
 };
 

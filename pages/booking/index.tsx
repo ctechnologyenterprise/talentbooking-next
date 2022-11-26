@@ -1,11 +1,15 @@
-import CommonHead from "@components/shared/CommonHead/CommonHead";
+import ButtonLink from "@components/ButtonLink";
+import Content from "@components/Content";
 import ChevronLeftIcon from "@public/svgs/ChevronLeftIcon";
 import ChevronRightIcon from "@public/svgs/ChevronRightIcon";
+import DownloadIcon from "@public/svgs/DownloadIcon";
 import EditIcon from "@public/svgs/EditIcon";
+import FileIcon from "@public/svgs/FileIcon";
 import PencilIcon from "@public/svgs/PencilIcon";
-import Select from "react-select";
 import RemoveIcon from "@public/svgs/RemoveIcon";
 import dayjs from "dayjs";
+import { useCallback } from "react";
+import Select from "react-select";
 
 const tableHeader = [
   "DATE",
@@ -71,16 +75,25 @@ const daysInMonth = () => {
 const Booking = () => {
   const dayOfWeek = daysInMonth();
 
-  return (
-    <>
-      <CommonHead
-        isNormal
-        canExport
-        exportText="Export"
-        createNewText="New Contract"
-        title="Bookings"
-      />
+  const headerButtons = useCallback(() => {
+    return (
+      <>
+        <ButtonLink
+          linkTo="/contract/form"
+          icon={<FileIcon />}
+          label="New Contract"
+        />
+        <ButtonLink
+          linkTo="/contract/export"
+          icon={<DownloadIcon />}
+          label="Export"
+        />
+      </>
+    );
+  }, []);
 
+  return (
+    <Content title="Bookings" leftContent={headerButtons}>
       <div className="pt-[5%] px-[30px] ">
         <div className="hidden md:flex w-[30%] justify-evenly items-center">
           <div className="cursor-pointer">
@@ -237,7 +250,7 @@ const Booking = () => {
           </div>
         </div>
       </div>
-    </>
+    </Content>
   );
 };
 
