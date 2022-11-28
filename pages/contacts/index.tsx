@@ -1,7 +1,11 @@
-import CommonHead from "@components/shared/CommonHead/CommonHead";
+import ButtonLink from "@components/ButtonLink";
+import Content from "@components/Content";
+
 import { SearchAndOrder } from "@components/shared/SearchAndOrder";
 import { SelectForm } from "@components/shared/SelectForm";
-import { useState } from "react";
+import DownloadIcon from "@public/svgs/DownloadIcon";
+import FileIcon from "@public/svgs/FileIcon";
+import { useCallback, useState } from "react";
 
 const Contact = () => {
   const [searchOrderInfo, setSearchOrderInfo] = useState<any>({
@@ -15,17 +19,25 @@ const Contact = () => {
     option: null,
   });
 
+  const headerButtons = useCallback(() => {
+    return (
+      <>
+        <ButtonLink
+          linkTo="/contacts/form"
+          icon={<FileIcon />}
+          label="New Contact"
+        />
+        <ButtonLink
+          linkTo="/contact/export"
+          icon={<DownloadIcon />}
+          label="Export"
+        />
+      </>
+    );
+  }, []);
+
   return (
-    <>
-      <CommonHead
-        isNormal
-        canExport
-        exportText="Export"
-        createNewText="New Contact"
-        title="Contacts"
-        href="contacts/form"
-      />
-      <div className="mt-20" />
+    <Content title="Contacts" leftContent={headerButtons}>
       <div className="base:w-full xl:w-1/3 h-14 mt-5 mr-5 ml-auto">
         <SearchAndOrder
           searchHolder="Search for a contact"
@@ -92,7 +104,7 @@ const Contact = () => {
           </button>
         </div>
       </div>
-    </>
+    </Content>
   );
 };
 

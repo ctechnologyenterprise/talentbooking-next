@@ -1,11 +1,19 @@
-import CommonHead from "@components/shared/CommonHead/CommonHead";
+import Content from "@components/Content";
+import ButtonLink from "@components/ButtonLink";
+
+import { useCallback } from "react";
+import DownloadIcon from "@public/svgs/DownloadIcon";
 
 const Revenue = () => {
+  const headerButtons = useCallback(() => {
+    return (
+      <ButtonLink linkTo="/roles/form" icon={<DownloadIcon />} label="Export" />
+    );
+  }, []);
   return (
-    <>
-      <CommonHead canExport exportText="Export" title="Revenue Tracker" />
+    <Content title="Revenue Tracker" leftContent={headerButtons}>
       <div className="h-screen">Revenue Tracker</div>
-    </>
+    </Content>
   );
 };
 

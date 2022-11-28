@@ -14,7 +14,7 @@ const Roles = () => {
 
   return (
     <Content title="Roles" leftContent={headerButtons}>
-      <div className="w-11/12 h-14 bg-[#f7f2fa] m-auto mt-20 flex">
+      <div className="w-11/12 h-14 bg-[#f7f2fa] flex">
         <Link href="roles/form" className="ml-5 h-full w-15 flex items-center">
           <div className="text-[#7f5295]">root</div>
         </Link>
@@ -30,7 +30,7 @@ const Roles = () => {
           </div>
         </div>
       </div>
-      <div className="w-11/12 h-14 bg-[#f7f2fa] m-auto mt-5 flex">
+      <div className="w-11/12 h-14 bg-[#f7f2fa] mt-5 flex">
         <Link href="roles/form" className="ml-5 h-full w-15 flex items-center">
           <div className="text-[#7f5295]">root</div>
         </Link>

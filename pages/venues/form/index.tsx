@@ -1,18 +1,12 @@
-import CommonHead from "@components/shared/CommonHead/CommonHead";
+import Content from "@components/Content";
+
 import VenuesContent from "@components/venues/venuesContent";
 
 const VenuesForm = () => {
   return (
-    <>
-      <CommonHead
-        isNormal
-        exportText="Export"
-        createNewText="Save"
-        title="New Venues"
-        href="venues/form"
-      />
+    <Content title="Venues Forms">
       <VenuesContent />
-    </>
+    </Content>
   );
 };
 

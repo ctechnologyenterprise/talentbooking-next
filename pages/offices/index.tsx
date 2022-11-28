@@ -1,8 +1,10 @@
-import CommonHead from "@components/shared/CommonHead/CommonHead";
+import ButtonLink from "@components/ButtonLink";
+import Content from "@components/Content";
 import { FilterBy } from "@components/shared/FilterBy";
 import { SearchAndOrder } from "@components/shared/SearchAndOrder";
+import FileIcon from "@public/svgs/FileIcon";
 import { countries } from "constants/country";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Select from "react-select";
 
 const Offices = () => {
@@ -16,10 +18,15 @@ const Offices = () => {
     option: null,
   });
 
+  const headerButtons = useCallback(() => {
+    return (
+      <ButtonLink linkTo="/roles/form" icon={<FileIcon />} label="New Office" />
+    );
+  }, []);
+
   return (
-    <>
-      <CommonHead isNormal createNewText="New Office" title="Offices" />
-      <div className="h-screen flex p-4 mt-[5%]">
+    <Content title="Offices" leftContent={headerButtons}>
+      <div className="h-screen flex p-4">
         <div className="w-full lg:w-8/12">
           <div className="text-center">Showing 0 of 0 items.</div>
         </div>
@@ -62,7 +69,7 @@ const Offices = () => {
           </div>
         </div>
       </div>
-    </>
+    </Content>
   );
 };
 

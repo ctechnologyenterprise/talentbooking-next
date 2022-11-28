@@ -18,7 +18,9 @@ export default function Content({ title, leftContent, children }: Props) {
           <div className="flex items-center pr-[20px]">{leftContent()}</div>
         )}
       </div>
-      {children}
+      <div className="md:pt-[5%] md:pl-[90px] lg:pl-[90px] md:pr-[10px]">
+        {children}
+      </div>
     </>
   );
 }

@@ -1,18 +1,11 @@
+import Content from "@components/Content";
 import PromotersContent from "@components/Promoters/PromotersContent";
-import CommonHead from "@components/shared/CommonHead/CommonHead";
 
 const PromotersForm = () => {
   return (
-    <>
-      <CommonHead
-        isNormal
-        exportText="Export"
-        createNewText="Save"
-        title="New Promoter"
-        href="promoters/form"
-      />
+    <Content title="Promoters Forms">
       <PromotersContent />
-    </>
+    </Content>
   );
 };
 

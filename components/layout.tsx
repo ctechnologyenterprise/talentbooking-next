@@ -2,6 +2,7 @@ import clsxm from "@libs/clsxm";
 import classNames from "classnames";
 import useVisible from "hooks/useVisible";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React, { ReactNode, useCallback, useRef } from "react";
 import Header from "./header";
 import Sidebar from "./sidebar";
@@ -12,13 +13,16 @@ type Props = {
 };
 
 function Layout({ children, title = "Talent Booking" }: Props) {
+  const router = useRouter();
+  const url = router.pathname;
+
   const toggleSidebar = useVisible(false);
   const ref = useRef<HTMLAnchorElement>(null);
   const layoutWrapperClass = classNames(
     "bg-white pt-[3rem] md:right-0 w-screen transition-all duration-300 z-10 mb-[100px]",
     {
-      ["w-screen md:pl-[5rem]"]: !toggleSidebar.visible,
-      ["fixed  md:w-[calc(100%_-_215px)] bg-neutral-900/40"]:
+      ["w-screen "]: !toggleSidebar.visible,
+      ["fixed  md:w-[calc(100%_-_140px)] bg-neutral-900/40"]:
         toggleSidebar.visible,
     }
   );

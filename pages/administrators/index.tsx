@@ -19,14 +19,13 @@ const Administrators = () => {
       <ButtonLink
         linkTo="/administrators/form"
         icon={<FileIcon />}
-        label="New Contract"
+        label="New Account"
       />
     );
   }, []);
 
   return (
     <Content title="New Account" leftContent={headerButtons}>
-      <div className="lg:mt-16 mt-0"></div>
       <div className="base:block xl:flex">
         <div className="base:w-full xl:w-3/5 base:h-fit lg:h-14 bg-[#f7f2fa] base:ml-0 lg:ml-5 mr-5 mt-5 flex ">
           <div className="base:block lg:flex">

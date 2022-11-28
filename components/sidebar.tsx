@@ -22,8 +22,8 @@ import { Ref } from "react";
 
 export const sidebarItems = [
   { id: 1, label: "Dashboard", link: "/dashboard", icon: HouseIcon },
-  { id: 2, label: "Bookings", link: "/booking", icon: BookingIcon },
-  { id: 3, label: "Tours", link: "/tour", icon: TourIcon },
+  { id: 2, label: "Bookings", link: "/bookings", icon: BookingIcon },
+  { id: 3, label: "Tours", link: "/tours", icon: TourIcon },
   { id: 4, label: "Shows", link: "/contracts/shows", icon: ShowIcon },
   { id: 5, label: "Festivals", link: "/festivals", icon: FestivalIcon },
   { id: 6, label: "Calendar", link: "/calendar", icon: CalendarIcon },
@@ -63,7 +63,7 @@ export default function Sidebar({
 }: sidebarProps) {
   const router = useRouter();
   const sidebarWrapperClass = classNames(
-    "md:block md:fixed h-full min-h-screen bg-[#2f2732] pt-[50px] mb-0 z-20 overflow-y-scroll transition-all duration-300",
+    "md:block md:fixed h-full min-h-screen bg-[#2f2732] pt-[48px] mb-0 z-20 overflow-y-scroll transition-all duration-300",
     {
       ["hidden md:w-20 w-0"]: !isCollapsed || isFocus,
       ["w-[215px]"]: isCollapsed,

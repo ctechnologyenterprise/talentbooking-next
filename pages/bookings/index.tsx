@@ -94,12 +94,12 @@ const Booking = () => {
 
   return (
     <Content title="Bookings" leftContent={headerButtons}>
-      <div className="pt-[5%] px-[30px] ">
-        <div className="hidden md:flex w-[30%] justify-evenly items-center">
+      <div>
+        <div className="hidden md:flex md:w-[50%] lg:w-[30%] justify-evenly items-center">
           <div className="cursor-pointer">
             <ChevronLeftIcon />
           </div>
-          <div className=" pb-5">
+          <div className="pb-5">
             <section className="static mt-[20px] ">
               <div>
                 <div>
@@ -149,12 +149,12 @@ const Booking = () => {
           </div>
         </div>
         <div>
-          <table className="table-fixed border-separate [border-spacing:0.15rem] w-[100%]">
+          <table className="table-fixed border-spacing-y-[1px] md:border-spacing-y-0 border-separate md:[border-spacing:0.15rem] w-[100%]">
             <thead>
-              <tr className="font-normal">
+              <tr className="font-normal md:contents hidden">
                 {tableHeader.map((i, k) => {
                   return (
-                    <th key={k} className="font-semibold text-xs py-2">
+                    <th key={k} className="font-semibold text-xs py-2 ">
                       {i}
                     </th>
                   );
@@ -168,7 +168,7 @@ const Booking = () => {
                     key={index}
                     className="odd:bg-[#f7f1f9] even:bg-[#fcfafd]"
                   >
-                    <td className="bg-[#c9bece] w-[111px] text-[12px] text-center uppercase font-medium text-white">
+                    <td className="bg-[#c9bece] md:w-[111px] py-1 w-[70px] text-[12px] text-center uppercase font-normal text-white">
                       {dayjs(a).format("D ddd")}
                     </td>
                     <td></td>
@@ -177,7 +177,7 @@ const Booking = () => {
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>
+                    <td className="md:contents hidden">
                       <div className="flex bg-[#e9e6ec] py-2 justify-around">
                         <div className="pl-[20px]">
                           <PencilIcon />

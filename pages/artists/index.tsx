@@ -1,6 +1,10 @@
-import CommonHead from "@components/shared/CommonHead/CommonHead";
+import ButtonLink from "@components/ButtonLink";
+import Content from "@components/Content";
+
 import { SearchAndOrder } from "@components/shared/SearchAndOrder";
-import { useState } from "react";
+import DownloadIcon from "@public/svgs/DownloadIcon";
+import FileIcon from "@public/svgs/FileIcon";
+import { useCallback, useState } from "react";
 
 const Artist = () => {
   const [searchOrderInfo, setSearchOrderInfo] = useState<any>({
@@ -9,15 +13,20 @@ const Artist = () => {
     option2: { value: "asc", label: "Ascending" },
   });
 
+  const headerButtons = useCallback(() => {
+    return (
+      <>
+        <ButtonLink
+          linkTo="/contract/form"
+          icon={<FileIcon />}
+          label="New Artist"
+        />
+      </>
+    );
+  }, []);
+
   return (
-    <>
-      <CommonHead
-        isNormal
-        createNewText="New Artist"
-        title="Artists"
-        href="artists/form"
-      />
-      <div className="mt-20" />
+    <Content title="Artists" leftContent={headerButtons}>
       <div className="base:w-full xl:w-1/3 h-14 mt-5 mr-5 ml-auto">
         <SearchAndOrder
           searchHolder="Search for a contact"
@@ -45,7 +54,7 @@ const Artist = () => {
           </button>
         </div>
       </div>
-    </>
+    </Content>
   );
 };
 
