@@ -22,7 +22,7 @@ export const ModalArtists = ({ setOpenModal }: Props) => {
   return (
     <div className={style.modalWrapper}>
       <div className={style.modal}>
-        <div className="flex">
+        <div className="flex w-11/12 m-auto">
           <button
             className="bg-[#dddddd] w-20 border rounded"
             onClick={() => setOpenModal(false)}

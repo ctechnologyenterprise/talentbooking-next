@@ -1,5 +1,4 @@
 import { ModalArtists } from "@components/ModalArtist";
-import { CountrySelect } from "@components/shared/CountrySelect";
 import { InputArea } from "@components/shared/InputArea";
 import { InputBox } from "@components/shared/InputBox";
 import { InputText } from "@components/shared/InputText";

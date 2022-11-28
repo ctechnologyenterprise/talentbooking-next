@@ -5,7 +5,7 @@ export type Props = {
 
 export const InputText = ({ inputName, icon }: Props) => {
   return (
-    <div className="flex">
+    <div className="flex w-full">
       <label className="text-sm text-slate-400 flex w-2/5 h-10 py-2 pl-5 border border-[#dddddd] pb-8">
         {inputName}
         {icon && <div className="text-[red] text-2xl ml-1 font-thin">*</div>}

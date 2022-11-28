@@ -1,10 +1,16 @@
+import Content from "@components/Content";
 import RoleContent from "@components/role/RoleContent";
+import { useCallback } from "react";
 
 const Form = () => {
+  const headerButtons = useCallback(() => {
+    return <div />;
+  }, []);
+
   return (
-    <div className="w-100">
+    <Content title="Roles" leftContent={headerButtons}>
       <RoleContent />
-    </div>
+    </Content>
   );
 };
 

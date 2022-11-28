@@ -29,7 +29,7 @@ const Artist = () => {
     <Content title="Artists" leftContent={headerButtons}>
       <div className="base:w-full xl:w-1/3 h-14 mt-5 mr-5 ml-auto">
         <SearchAndOrder
-          searchHolder="Search for a contact"
+          searchHolder="Search for a artist"
           searchLabel="Search"
           options1={[
             { value: "name", label: "Name" },
