@@ -1,5 +1,5 @@
 import Content from "@components/Content";
-import RoleContent from "@components/role/RoleContent";
+import RoleContent from "@components/RoleNew/RoleContent";
 import { useCallback } from "react";
 
 const Form = () => {

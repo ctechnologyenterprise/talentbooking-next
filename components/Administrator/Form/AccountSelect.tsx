@@ -10,6 +10,7 @@ export const AccountSelect = () => {
     { value: "Root", label: "Root" },
     { value: "A", label: "A" },
   ];
+
   return (
     <div className="relative flex border-[1px] font-light text-[14px] text-[#999] items-center border-[#dddd] border-solid mt-5">
       <div className="px-3 w-2/5">Account Type</div>

@@ -2,9 +2,9 @@ import { InputDate } from "@components/shared/InputDate";
 import { InputText } from "@components/shared/InputText";
 import style from "./ModalFreeDay.module.css";
 
-export type Props = { setOpenModal: (val: boolean) => void };
+export type Props = { formModalAddFreeDay: any };
 
-export const ModalFreeDay = ({ setOpenModal }: Props) => {
+export const ModalFreeDay = ({ formModalAddFreeDay }: Props) => {
   const items = [
     { name: "Date", icon: true },
     { name: "Venue", icon: true },
@@ -29,20 +29,20 @@ export const ModalFreeDay = ({ setOpenModal }: Props) => {
         <div className="flex w-11/12 m-auto">
           <button
             className="bg-[#dddddd] w-20 border rounded"
-            onClick={() => setOpenModal(false)}
+            onClick={() => formModalAddFreeDay.hide()}
           >
             Cancel
           </button>
           <div className="w-200 m-auto text-[#460465]">Add Free Days</div>
           <button
             className="bg-[#dddddd] w-20 border rounded"
-            onClick={() => setOpenModal(false)}
+            onClick={() => formModalAddFreeDay.hide()}
           >
             Save
           </button>
         </div>
         <div className="h-0.5 bg-[#dddddd] mt-2" />
-        <div className="w-11/12 m-auto mt-5">
+        <div className="w-11/12 m-auto mt-5 overflow-y-auto h-full">
           {Array.from({ length: 5 }).map((index, key) => (
             <InputDate key={key} inputName="date" />
           ))}

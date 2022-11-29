@@ -3,11 +3,10 @@ import { InputText } from "@components/shared/InputText";
 import PlusIcon from "@public/svgs/PlusIcon";
 
 export type TourProp = {
-  openAddShow: boolean;
-  setOpenAddShow: (val: boolean) => void;
+  formModalAddShow: any;
 };
 
-const TourContent = ({ openAddShow, setOpenAddShow }: TourProp) => {
+const TourContent = ({ formModalAddShow }: TourProp) => {
   return (
     <>
       <div className="base:w-full w-11/12 base:ml-0 lg:ml-10 m-auto">
@@ -47,7 +46,7 @@ const TourContent = ({ openAddShow, setOpenAddShow }: TourProp) => {
             <div className="text-white font-light">Touring Companies</div>
             <button
               className="text-white font-light ml-auto mr-5 flex"
-              onClick={() => setOpenAddShow(true)}
+              onClick={() => formModalAddShow.show()}
             >
               <PlusIcon className="m-1 mr-2" />
               Add
@@ -55,8 +54,9 @@ const TourContent = ({ openAddShow, setOpenAddShow }: TourProp) => {
           </div>
         </div>
       </div>
-
-      {openAddShow && <ModalShows setOpenModal={setOpenAddShow} />}
+      {formModalAddShow.visible && (
+        <ModalShows formModalAddShow={formModalAddShow} />
+      )}
     </>
   );
 };

@@ -3,12 +3,19 @@ import { InputArea } from "@components/shared/InputArea";
 import { InputText } from "@components/shared/InputText";
 import style from "./ModalArtist.module.css";
 
-export type Props = { setOpenModal: (val: boolean) => void };
+export type Props = {
+  formModalArtist: {
+    visible: boolean;
+    show: () => void;
+    hide: () => void;
+    toggle: () => void;
+  };
+};
 
-export const ModalArtists = ({ setOpenModal }: Props) => {
+export const ModalArtists = ({ formModalArtist }: Props) => {
   const items = [
     { name: "Name", icon: true },
-    { name: "Email 1", icon: true },
+    { name: "EmaØil 1", icon: true },
     { name: "Email 2", icon: false },
     { name: "Telephone 1", icon: true },
     { name: "Telephone 2", icon: true },
@@ -25,20 +32,20 @@ export const ModalArtists = ({ setOpenModal }: Props) => {
         <div className="flex w-11/12 m-auto">
           <button
             className="bg-[#dddddd] w-20 border rounded"
-            onClick={() => setOpenModal(false)}
+            onClick={() => formModalArtist.hide()}
           >
             Cancel
           </button>
           <div className="w-200 m-auto"> New Touring Company</div>
           <button
             className="bg-[#dddddd] w-20 border rounded"
-            onClick={() => setOpenModal(false)}
+            onClick={() => formModalArtist.hide()}
           >
             Save
           </button>
         </div>
         <div className="h-0.5 bg-[#dddddd] mt-2" />
-        <div className="w-11/12 m-auto mt-5">
+        <div className="w-11/12 m-auto mt-5 overflow-y-auto h-full">
           {items.map((item) => (
             <InputText key={item.name} inputName={item.name} icon={item.icon} />
           ))}

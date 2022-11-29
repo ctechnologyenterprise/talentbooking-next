@@ -26,9 +26,8 @@ const ContactsContent = () => {
   return (
     <>
       <div className="base:w-full w-11/12 base:ml-0 lg:ml-10 m-auto">
-        <div className="mt-16" />
         <div className="lg:flex base:block">
-          <div className="base:w-full lg:w-1/2 mt-5">
+          <div className="base:w-full lg:w-1/2">
             <div className="bg-[#7f5295] h-10 py-2 pl-5">
               <div className="text-white font-light">Individual Details</div>
             </div>
@@ -49,7 +48,7 @@ const ContactsContent = () => {
               </div>
             </div>
           </div>
-          <div className="base:w-full lg:w-1/2 mt-5 lg:ml-7 ml-0 pb-10">
+          <div className="base:w-full lg:w-1/2 lg:ml-7 ml-0 pb-10">
             <div className="bg-[#7f5295] h-10 py-2 pl-5">
               <div className="text-white font-light">Professional</div>
             </div>

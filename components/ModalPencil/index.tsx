@@ -1,11 +1,20 @@
 import { CountrySelect } from "@components/shared/CountrySelect";
 import { CurrencySelect } from "@components/shared/CurrencySelect";
 import { InputText } from "@components/shared/InputText";
+import { COUNTRY } from "constants/country";
+import { CURRENCY } from "constants/currency";
 import style from "./ModalPencil.module.css";
 
-export type Props = { setOpenModal: (val: boolean) => void };
+export type Props = {
+  formModalAddPencilled: {
+    visible: boolean;
+    show: () => void;
+    hide: () => void;
+    toggle: () => void;
+  };
+};
 
-export const ModalPencil = ({ setOpenModal }: Props) => {
+export const ModalPencil = ({ formModalAddPencilled }: Props) => {
   const items = [
     { name: "Date", icon: true },
     { name: "Venue", icon: true },
@@ -30,22 +39,22 @@ export const ModalPencil = ({ setOpenModal }: Props) => {
         <div className="flex w-11/12 m-auto">
           <button
             className="bg-[#dddddd] w-20 border rounded"
-            onClick={() => setOpenModal(false)}
+            onClick={() => formModalAddPencilled.hide()}
           >
             Cancel
           </button>
           <div className="w-200 m-auto text-[#460465]"> Pencil</div>
           <button
             className="bg-[#dddddd] w-20 border rounded"
-            onClick={() => setOpenModal(false)}
+            onClick={() => formModalAddPencilled.hide()}
           >
             Save
           </button>
         </div>
         <div className="h-0.5 bg-[#dddddd] mt-2" />
-        <div className="w-11/12 m-auto mt-5">
+        <div className="w-11/12 m-auto mt-5 overflow-y-auto h-full">
           {items.map((item) =>
-            item.name === "Country" ? (
+            item.name === COUNTRY ? (
               <div className="flex">
                 <label className="text-sm text-slate-400 flex w-2/5 h-10 py-2 pl-5 border border-[#dddddd] pb-8">
                   Country
@@ -53,7 +62,7 @@ export const ModalPencil = ({ setOpenModal }: Props) => {
                 </label>
                 <CountrySelect />
               </div>
-            ) : item.name === "Currency" ? (
+            ) : item.name === CURRENCY ? (
               <div className="flex">
                 <label className="text-sm text-slate-400 flex w-2/5 h-10 py-2 pl-5 border border-[#dddddd] pb-8">
                   Currency

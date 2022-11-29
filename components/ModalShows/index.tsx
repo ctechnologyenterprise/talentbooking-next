@@ -2,9 +2,9 @@ import { InputDate } from "@components/shared/InputDate";
 import { InputText } from "@components/shared/InputText";
 import style from "./ModalShows.module.css";
 
-export type Props = { setOpenModal: (val: boolean) => void };
+export type Props = { formModalAddShow: any };
 
-export const ModalShows = ({ setOpenModal }: Props) => {
+export const ModalShows = ({ formModalAddShow }: Props) => {
   return (
     <div className={style.modalWrapper}>
       <div className={style.modal}>
@@ -12,7 +12,7 @@ export const ModalShows = ({ setOpenModal }: Props) => {
           <div className="w-200 m-auto"> Add Shows</div>
           <button
             className="w-20 text-[#460465] bg-[#f7f2fa] px-4 py-2 border border-[#ece0f3] hover:text-[#460465] hover:bg-[#e5d5ef] hover:border-[#d0b3e2]"
-            onClick={() => setOpenModal(false)}
+            onClick={() => formModalAddShow.hide()}
           >
             Close
           </button>

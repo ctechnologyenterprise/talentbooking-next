@@ -4,16 +4,17 @@ import { InputBox } from "@components/shared/InputBox";
 import { InputText } from "@components/shared/InputText";
 import { StatusSelect } from "@components/shared/Status/statusSelect";
 import PlusIcon from "@public/svgs/PlusIcon";
+import useVisible from "hooks/useVisible";
 import { useState } from "react";
 
 const ArtistContent = () => {
-  const [isOpenModal, setOpenModal] = useState<boolean>(false);
+  const formModalArtist = useVisible(false);
   return (
     <>
       <div className="base:w-full w-11/12 base:ml-0 lg:ml-10 m-auto">
         <div className="lg:flex base:block w-full">
           <StatusSelect />
-          <div className="flex base:w-full lg:w-3/5 lg:mt-20 mt-5 base:ml-0 lg:ml-20">
+          <div className="flex base:w-full lg:w-3/5 base:ml-0 lg:ml-20">
             <label
               htmlFor="Search"
               className="lg:w-1/5 w-2/5 inline-flex items-center px-3 text-base text-slate-400 border border-r-1 border-[#dddddd]"
@@ -76,7 +77,7 @@ const ArtistContent = () => {
               <div className="text-white font-light">Touring Companies</div>
               <button
                 className="text-white font-light ml-auto mr-5 flex"
-                onClick={() => setOpenModal(true)}
+                onClick={() => formModalArtist.show()}
               >
                 <PlusIcon className="m-1 mr-2" />
                 Add
@@ -89,7 +90,7 @@ const ArtistContent = () => {
               <div className="text-white font-light">Production Companies</div>
               <button
                 className="text-white font-light ml-auto mr-5 flex"
-                onClick={() => setOpenModal(true)}
+                onClick={() => formModalArtist.show()}
               >
                 <PlusIcon className="m-1 mr-2" />
                 Add
@@ -156,7 +157,9 @@ const ArtistContent = () => {
         </div>
         <div className="mt-20" />
       </div>
-      {isOpenModal && <ModalArtists setOpenModal={setOpenModal} />}
+      {formModalArtist.visible && (
+        <ModalArtists formModalArtist={formModalArtist} />
+      )}
     </>
   );
 };

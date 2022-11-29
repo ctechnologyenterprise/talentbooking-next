@@ -1,6 +1,6 @@
 import { StatusSelect } from "../shared/Status/statusSelect";
 import { InputText } from "@components/shared/InputText";
-import { AccountSelect } from "./form/accountSelect";
+import { AccountSelect } from "./Form/AccountSelect";
 
 const AdministratorsContent = () => {
   return (

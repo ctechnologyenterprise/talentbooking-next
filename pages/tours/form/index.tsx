@@ -7,40 +7,41 @@ import TourContent from "@components/Tour/tourContent";
 import FileIcon from "@public/svgs/FileIcon";
 import PencilIcon from "@public/svgs/PencilIcon";
 import SaveIcon from "@public/svgs/SaveIcon";
+import useVisible from "hooks/useVisible";
+
 import { useCallback, useState } from "react";
 
 const TourForm = () => {
-  const [openAddShow, setOpenAddShow] = useState<boolean>(false);
-  const [openAddPencilledShow, setOpenAddPencilledShow] =
-    useState<boolean>(false);
-  const [openAddFreeDay, setOpenAddFreeDay] = useState<boolean>(false);
+  const formModalAddShow = useVisible(false);
+  const formModalAddPencilled = useVisible(false);
+  const formModalAddFreeDay = useVisible(false);
 
   const headerButtons = useCallback(() => {
     return (
       <div className="flex">
         <Button
           onClick={() => {
-            setOpenAddShow(true),
-              setOpenAddPencilledShow(false),
-              setOpenAddFreeDay(false);
+            formModalAddShow.show(),
+              formModalAddPencilled.hide(),
+              formModalAddFreeDay.hide();
           }}
           icon={<FileIcon />}
           label="Add Show(s)"
         />
         <Button
           onClick={() => {
-            setOpenAddPencilledShow(true),
-              setOpenAddShow(false),
-              setOpenAddFreeDay(false);
+            formModalAddPencilled.show(),
+              formModalAddShow.hide(),
+              formModalAddFreeDay.hide();
           }}
           icon={<PencilIcon />}
           label="Add Pencilled Show"
         />
         <Button
           onClick={() => {
-            setOpenAddFreeDay(true),
-              setOpenAddShow(false),
-              setOpenAddPencilledShow(false);
+            formModalAddFreeDay.show(),
+              formModalAddShow.hide(),
+              formModalAddPencilled.hide();
           }}
           icon={<FileIcon />}
           label="Add Free Day(s)"
@@ -48,17 +49,19 @@ const TourForm = () => {
         <ButtonLink linkTo="/tour/form" icon={<SaveIcon />} label="Save" />
       </div>
     );
-  }, []);
-
+  }, [formModalAddFreeDay, formModalAddPencilled, formModalAddShow]);
   return (
-    <Content title="New Tour" leftContent={headerButtons}>
-      <TourContent openAddShow={openAddShow} setOpenAddShow={setOpenAddShow} />
-
-      {openAddPencilledShow && (
-        <ModalPencil setOpenModal={setOpenAddPencilledShow} />
+    <>
+      <Content title="New Tour" leftContent={headerButtons}>
+        <TourContent formModalAddShow={formModalAddShow} />
+      </Content>
+      {formModalAddPencilled.visible && (
+        <ModalPencil formModalAddPencilled={formModalAddPencilled} />
       )}
-      {openAddFreeDay && <ModalFreeDay setOpenModal={setOpenAddFreeDay} />}
-    </Content>
+      {formModalAddFreeDay.visible && (
+        <ModalFreeDay formModalAddFreeDay={formModalAddFreeDay} />
+      )}
+    </>
   );
 };
 

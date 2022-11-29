@@ -1,8 +1,8 @@
 import { InputText } from "@components/shared/InputText";
 
-const RoleDetails = () => {
+const RoleDetail = () => {
   return (
-    <div className="w-3/5 ml-4 mt-20">
+    <div className="w-3/5 ml-4">
       <div className="bg-[#7f5295] h-10 py-2 pl-5">
         <div className="text-white">Role Details</div>
       </div>
@@ -16,4 +16,4 @@ const RoleDetails = () => {
   );
 };
 
-export default RoleDetails;
+export default RoleDetail;

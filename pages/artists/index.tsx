@@ -17,7 +17,7 @@ const Artist = () => {
     return (
       <>
         <ButtonLink
-          linkTo="/contract/form"
+          linkTo="/artists/form"
           icon={<FileIcon />}
           label="New Artist"
         />

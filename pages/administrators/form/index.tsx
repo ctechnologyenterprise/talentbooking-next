@@ -1,4 +1,4 @@
-import AdministratorsContent from "@components/administrators/administratorsContent";
+import AdministratorsContent from "@components/Administrator/AdministratorsContent";
 import ButtonLink from "@components/ButtonLink";
 import Content from "@components/Content";
 import SaveIcon from "@public/svgs/SaveIcon";

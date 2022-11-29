@@ -151,3 +151,5 @@ export const currency = [
   { value: "SKK", label: "Slovak Koruna - SKK" },
   { value: "AMD", label: "Armenian Dram - AMD" },
 ];
+
+export const CURRENCY = "Currency";

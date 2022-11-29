@@ -243,3 +243,5 @@ export const countries = [
   { label: "Zambia", value: "ZM" },
   { label: "Zimbabwe", value: "ZW" },
 ];
+
+export const COUNTRY = "Country";

@@ -17,7 +17,7 @@ export const StatusSelect = () => {
 
   let a = true;
   return (
-    <div className="mt-20 base:w-full lg:w-96">
+    <div className="base:w-full lg:w-96">
       <div className="flex">
         <div
           className={classNames("w-2/5 flex justify-center text-white mr-0.5", {
