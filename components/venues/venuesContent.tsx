@@ -27,7 +27,7 @@ const VenuesContent = () => {
               <div className="text-white font-light">Venue Details</div>
             </div>
             <div className="mt-5">
-              <InputText inputName={"Name"} icon={true} />
+              <InputText inputName={"Name"} required={true} />
               <textarea
                 placeholder="Description"
                 className="focus:h-32 h-10 placeholder:pl-3 rounded-none border border-[#dddddd] text-gray-900 block flex-1 min-w-0 w-full text-sm p-2.5 focus:text-[#460465] focus:shadow-[inset_0_0_8px_rgb(70,4,101,0.1)] focus:outline-0 focus:bg-[#f7f2fa] hover:bg-[#7f5295]"
@@ -67,11 +67,11 @@ const VenuesContent = () => {
               <InputText inputName={"Telephone 2"} />
               <InputText inputName={"Fax 1"} />
               <InputText inputName={"Fax 2"} />
-              <InputText inputName={"Address Line 1"} icon={true} />
+              <InputText inputName={"Address Line 1"} required={true} />
               <InputText inputName={"Address Line 2"} />
-              <InputText inputName={"Postcode"} icon={true} />
-              <InputText inputName={"City"} icon={true} />
-              <InputText inputName={"Country"} icon={true} />
+              <InputText inputName={"Postcode"} required={true} />
+              <InputText inputName={"City"} required={true} />
+              <InputText inputName={"Country"} required={true} />
               <div className="flex">
                 <label className="text-sm text-slate-400 flex w-2/5 h-10 py-2 pl-5 border border-[#dddddd] pb-8">
                   Country

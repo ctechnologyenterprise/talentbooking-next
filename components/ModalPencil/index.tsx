@@ -74,7 +74,7 @@ export const ModalPencil = ({ formModalAddPencilled }: Props) => {
               <InputText
                 key={item.name}
                 inputName={item.name}
-                icon={item.icon}
+                required={item.icon}
               />
             )
           )}

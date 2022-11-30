@@ -1,3 +1,4 @@
+import clsxm from "@libs/clsxm";
 import Select from "react-select";
 
 export type Props = {
@@ -5,6 +6,9 @@ export type Props = {
   onSelect(value: any): void;
   options: ListOption[];
   icon?: boolean;
+  classNameContainer?: string;
+  classNameLabel?: string;
+  classNameSelect?: string;
 };
 
 export type ListOption = {
@@ -12,15 +16,28 @@ export type ListOption = {
   value: string;
 };
 
-export const SelectForm = ({ selectLabel, onSelect, options, icon }: Props) => {
+export const SelectForm = ({
+  selectLabel,
+  onSelect,
+  options,
+  icon,
+  classNameContainer,
+  classNameLabel,
+  classNameSelect,
+}: Props) => {
   return (
-    <div className="relative flex border-[1px] text-[#999] items-center border-[#dddd] border-solid ">
-      <label className="w-2/5 pl-3 text-base flex">
+    <div
+      className={clsxm(
+        "relative flex border-[1px] text-[#999] items-center border-[#dddd] border-solid ",
+        classNameContainer
+      )}
+    >
+      <label className={clsxm("w-2/5 pl-3 text-base flex", classNameLabel)}>
         {selectLabel}{" "}
         {icon && <div className="text-[red] text-2xl ml-1 font-thin">*</div>}
       </label>
       <Select
-        className="w-3/5"
+        className={clsxm("w-3/5", classNameSelect)}
         options={options}
         onChange={onSelect}
         styles={{

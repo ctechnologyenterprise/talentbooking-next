@@ -4,38 +4,18 @@ import ButtonLink from "@components/ButtonLink";
 import PlusSignIcon from "@public/svgs/PlusSignIcon";
 import RefreshIcon from "@public/svgs/RefreshIcon";
 import DownloadIcon from "@public/svgs/DownloadIcon";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import Select from "react-select";
 import FileIcon from "@public/svgs/FileIcon";
 import Content from "@components/Content";
+import { StatusSelect } from "@components/shared/Status/statusSelect";
+import { SelectForm } from "@components/shared/SelectForm";
 
-const status = [
-  {
-    label: "Cancelled",
-    value: "#df4141",
-  },
-  {
-    label: "Confirmed",
-    value: "#8ac748",
-  },
-  {
-    label: "Pending",
-    value: "#4899c7",
-  },
-  {
-    label: "Rejected",
-    value: "#f0ad4e",
-  },
-  {
-    label: "Withdraw",
-    value: "#ebdb57",
-  },
-];
 const ContractsForms = () => {
-  const colorStyles = {
-    control: (styles: any) => ({ ...styles, backgroundColor: "white" }),
-  };
-
+  const [filterByInfo, setFilterByInfo] = useState<any>({
+    input: null,
+    option: null,
+  });
   const headerButtons = useCallback(() => {
     return (
       <>
@@ -52,53 +32,23 @@ const ContractsForms = () => {
       </>
     );
   }, []);
+
   return (
-    <Content title="Contacts" leftContent={headerButtons}>
+    <Content title="New Contract" leftContent={headerButtons}>
       <div className=" py-[25px]">
-        <div className="grid grid-rows-1 grid-flow-col gap-4 grid-cols-3">
-          <div className="w-[320px] flex">
-            {/* <div className="flex items-center w-[20%]">
-              <p className="text-[14px] border py-[8px]">Status</p>
-            </div> */}
-            <div className="w-[80%]">
-              <Select
-                options={status}
-                styles={{
-                  control: (baseStyles, state) => ({
-                    ...baseStyles,
-                    width: "100%",
-                    borderRadius: 0,
-                    borderWidth: "1px",
-                    "&:hover": {
-                      borderLeftColor: "#ddd",
-                    },
-                    backgroundColor: state.isFocused ? "#f7f2fa" : "",
-                    borderLeftColor: "#ddd",
-                    borderBottomColor: "#ddd",
-                    boxShadow: state.isFocused
-                      ? "inset 0 0 8px rgb(70 4 101 / 10%)"
-                      : "0 0 15px rgb(0 0 0 / 5%) inset",
-                  }),
-                  option: (baseStyles, state) => ({
-                    ...baseStyles,
-                    "&:hover": {
-                      backgroundColor: "#460465",
-                      color: "#ffff",
-                    },
-                    color: "#000",
-                    backgroundColor: "#ffff",
-                  }),
-                }}
-                components={{
-                  IndicatorSeparator: () => null,
-                }}
-              />
-            </div>
+        <div className="grid xl:grid-rows-1 grid-rows-3 md:grid-rows-2 grid-flow-col gap-0 xl:gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+          <div className="w-screen">
+            <StatusSelect
+              isNewContract
+              className="mt-0 w-full xl:w-[310px] lg:w-[370px] md:w-[370px]"
+              classNameLabel="mr-0 h-[42px]"
+            />
           </div>
+
           <div className=" w-[370px] flex justify-between border">
             <div className="border-r-[1px] flex justify-center items-center w-[30%]">
               <p className="font-light text-[#999] text-[14px]">
-                Agents<em className="text-[#b91c1c]">*</em>
+                Agent(s)<em className="text-[#b91c1c]">*</em>
               </p>
             </div>
             <input
@@ -107,14 +57,25 @@ const ContractsForms = () => {
             />
           </div>
           <div className=" w-[370px] flex justify-between border">
-            <div className="border-r-[1px] flex justify-center items-center w-[30%]">
-              <p className="font-light text-[#999] text-[14px]">
-                Offices<em className="text-[#b91c1c]">*</em>
-              </p>
-            </div>
-            <input
-              type="text"
-              className="shadow-[inset_0_0_15px_rgb(0,0,0,0.05)] text-gray-900 block flex-1 min-w-0 w-[70%] text-sm p-2.5 focus:text-[#460465] focus:bg-[#f7f2fa] focus:shadow-[inset_0_0_8px_rgb(70,4,101,0.1)] focus:outline-0"
+            <SelectForm
+              classNameContainer="w-[370px]"
+              icon={true}
+              options={[
+                { value: "artist", label: "Artist" },
+                {
+                  value: "echoLocationEmployee",
+                  label: "Echo Location Employee",
+                },
+                { value: "manager", label: "Manager" },
+                { value: "other", label: "Other" },
+                { value: "productionAssistant", label: "Production Assistant" },
+                { value: "promoterOrBuyer", label: "Promoter/Buyer" },
+                { value: "tourManager", label: "Tour Manager" },
+              ]}
+              selectLabel="Office"
+              onSelect={(val) =>
+                setFilterByInfo({ ...filterByInfo, option: val })
+              }
             />
           </div>
         </div>
@@ -178,7 +139,7 @@ const ContractsForms = () => {
                 </div>
               </div>
             </div>
-            <div className="flex space-x-7 mt-[3%]">
+            <div className="flex-1 xl:flex space-x-7 mt-[3%]">
               <div className="w-[62%]">
                 <div className="flex justify-between border">
                   <div className="border-r-[1px] flex justify-center items-center w-[30%]">

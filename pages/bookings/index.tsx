@@ -1,5 +1,7 @@
 import ButtonLink from "@components/ButtonLink";
 import Content from "@components/Content";
+import BookingPencilModal from "@components/modals/BookingPencilModal/BookingPencilModal";
+import { InputText } from "@components/shared/InputText";
 import ChevronLeftIcon from "@public/svgs/ChevronLeftIcon";
 import ChevronRightIcon from "@public/svgs/ChevronRightIcon";
 import DownloadIcon from "@public/svgs/DownloadIcon";
@@ -7,8 +9,9 @@ import EditIcon from "@public/svgs/EditIcon";
 import FileIcon from "@public/svgs/FileIcon";
 import PencilIcon from "@public/svgs/PencilIcon";
 import RemoveIcon from "@public/svgs/RemoveIcon";
+import classNames from "classnames";
 import dayjs from "dayjs";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import Select from "react-select";
 
 const tableHeader = [
@@ -74,12 +77,17 @@ const daysInMonth = () => {
 
 const Booking = () => {
   const dayOfWeek = daysInMonth();
+  const [isOpenModal, setOpenModal] = useState<boolean>(false);
+
+  const BookingWrapperClass = classNames("px-[30px]", {
+    ["fixed"]: isOpenModal == true,
+  });
 
   const headerButtons = useCallback(() => {
     return (
       <>
         <ButtonLink
-          linkTo="/contract/form"
+          linkTo="/contracts/form"
           icon={<FileIcon />}
           label="New Contract"
         />
@@ -94,60 +102,77 @@ const Booking = () => {
 
   return (
     <Content title="Bookings" leftContent={headerButtons}>
-      <div>
-        <div className="hidden md:flex md:w-[50%] lg:w-[30%] justify-evenly items-center">
-          <div className="cursor-pointer">
-            <ChevronLeftIcon />
-          </div>
-          <div className="pb-5">
-            <section className="static mt-[20px] ">
-              <div>
+      <div className={BookingWrapperClass}>
+        <div className="grid grid-flow-row grid-cols-2">
+          <div className="hidden md:flex justify-start items-center">
+            <div className="cursor-pointer">
+              <ChevronLeftIcon />
+            </div>
+            <div className="pb-5">
+              <section className="static mt-[20px] ">
                 <div>
-                  <fieldset>
-                    <div className="relative flex border-[1px] font-light text-[14px] text-[#999] items-center border-[#dddd] border-solid ">
-                      <div className="px-3">Select Month</div>
-                      <Select
-                        options={months}
-                        styles={{
-                          control: (baseStyles, state) => ({
-                            ...baseStyles,
-                            width: "200px",
-                            borderRadius: 0,
-                            borderWidth: 0,
-                            borderLeftWidth: "1px",
-                            "&:hover": {
+                  <div>
+                    <fieldset>
+                      <div className="relative flex border-[1px] font-light text-[14px] text-[#999] items-center border-[#dddd] border-solid ">
+                        <div className="px-3">Select Month</div>
+                        <Select
+                          options={months}
+                          styles={{
+                            control: (baseStyles, state) => ({
+                              ...baseStyles,
+                              width: "200px",
+                              borderRadius: 0,
+                              borderWidth: 0,
+                              borderLeftWidth: "1px",
+                              "&:hover": {
+                                borderLeftColor: "#ddd",
+                              },
+                              backgroundColor: state.isFocused ? "#f7f2fa" : "",
                               borderLeftColor: "#ddd",
-                            },
-                            backgroundColor: state.isFocused ? "#f7f2fa" : "",
-                            borderLeftColor: "#ddd",
-                            boxShadow: state.isFocused
-                              ? "inset 0 0 8px rgb(70 4 101 / 10%)"
-                              : "0 0 15px rgb(0 0 0 / 5%) inset",
-                          }),
-                          option: (baseStyles, state) => ({
-                            ...baseStyles,
-                            "&:hover": {
-                              backgroundColor: "#460465",
-                              color: "#ffff",
-                            },
-                            color: "#000",
-                            backgroundColor: "#ffff",
-                          }),
-                        }}
-                        components={{
-                          IndicatorSeparator: () => null,
-                        }}
-                      />
-                    </div>
-                  </fieldset>
+                              boxShadow: state.isFocused
+                                ? "inset 0 0 8px rgb(70 4 101 / 10%)"
+                                : "0 0 15px rgb(0 0 0 / 5%) inset",
+                            }),
+                            option: (baseStyles, state) => ({
+                              ...baseStyles,
+                              "&:hover": {
+                                backgroundColor: "#460465",
+                                color: "#ffff",
+                              },
+                              color: "#000",
+                              backgroundColor: "#ffff",
+                            }),
+                          }}
+                          components={{
+                            IndicatorSeparator: () => null,
+                          }}
+                        />
+                      </div>
+                    </fieldset>
+                  </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            </div>
+            <div>
+              <ChevronRightIcon className="cursor-pointer" />
+            </div>
           </div>
-          <div>
-            <ChevronRightIcon className="cursor-pointer" />
+          <div className="w-full flex items-center justify-end">
+            <div className="flex justify-end items-center space-x-3 w-full">
+              <div className="font-extralight text-[#460465] text-[18px]">
+                Filter By
+              </div>
+              <InputText
+                placeholder="Select an artist"
+                inputName="Artist"
+                classNameInput="placeholder:text-[#ddd]"
+                classNameContainer="w-[70%]"
+                classNameLabel="font-light w-[30%]"
+              />
+            </div>
           </div>
         </div>
+
         <div>
           <table className="table-fixed border-spacing-y-[1px] md:border-spacing-y-0 border-separate md:[border-spacing:0.15rem] w-[100%]">
             <thead>
@@ -179,15 +204,18 @@ const Booking = () => {
                     <td></td>
                     <td className="md:contents hidden">
                       <div className="flex bg-[#e9e6ec] py-2 justify-around">
-                        <div className="pl-[20px]">
+                        <button
+                          className="pl-[20px]"
+                          onClick={() => setOpenModal(true)}
+                        >
                           <PencilIcon />
-                        </div>
-                        <div className="opacity-50">
+                        </button>
+                        <button className="opacity-50">
                           <EditIcon />
-                        </div>
-                        <div className="opacity-50">
+                        </button>
+                        <button className="opacity-50">
                           <RemoveIcon />
-                        </div>
+                        </button>
                       </div>
                     </td>
                   </tr>
@@ -250,6 +278,9 @@ const Booking = () => {
           </div>
         </div>
       </div>
+      {isOpenModal && (
+        <BookingPencilModal setIsOpen={setOpenModal} isOpen={isOpenModal} />
+      )}
     </Content>
   );
 };

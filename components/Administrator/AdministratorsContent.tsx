@@ -26,13 +26,13 @@ const AdministratorsContent = () => {
             <div className="bg-[#7f5295] h-10 py-2 pl-5 mb-5">
               <div className="text-white font-light">Role Permissions</div>
             </div>
-            <InputText inputName={"First Name "} icon={true} />
+            <InputText inputName={"First Name "} required={true} />
             <InputText inputName={"Last Name "} />
             <InputText inputName={"Mobile "} />
             <div className="bg-[#7f5295] h-10 py-2 pl-5 mt-10 mb-5">
               <div className="text-white font-light">Login Details</div>
             </div>
-            <InputText inputName={"Email "} icon={true} />
+            <InputText inputName={"Email "} required={true} />
             <div className="h-10 py-2 pl-5 border border-t-0 border-[#dddddd] flex">
               <label className="text-sm text-slate-400">
                 Send Email Invite

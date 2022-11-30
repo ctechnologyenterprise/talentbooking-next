@@ -25,6 +25,10 @@ module.exports = {
       },
       colors: {
         "common-purple": "#460465",
+        "hover-modal-button": "#e5d5ef",
+      },
+      animation: {
+        wiggle: "wiggle 1s ease-in-out infinite",
       },
     },
   },

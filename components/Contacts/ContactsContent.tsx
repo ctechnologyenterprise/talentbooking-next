@@ -36,7 +36,7 @@ const ContactsContent = () => {
                 <InputText
                   key={item.name}
                   inputName={item.name}
-                  icon={item.icon}
+                  required={item.icon}
                 />
               ))}
               <div className="flex">

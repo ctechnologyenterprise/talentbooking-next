@@ -2,8 +2,9 @@ import PlusSignIcon from "@public/svgs/PlusSignIcon";
 import classnames from "classnames";
 import { Fragment } from "react";
 import ActiveBar from "../ActiveBar/ActiveBar";
+import { InputArea } from "../InputArea";
 
-const notes = [
+const notescol1 = [
   {
     name: "Productions",
     icon: <PlusSignIcon />,
@@ -24,6 +25,8 @@ const notes = [
     icon: <PlusSignIcon />,
     iconName: "Add",
   },
+];
+const notescol2 = [
   {
     name: "Visa Requirements",
     icon: <PlusSignIcon />,
@@ -45,6 +48,7 @@ const notes = [
     iconName: "Add",
   },
 ];
+
 const ProductionNotes = () => {
   return (
     <>
@@ -55,24 +59,36 @@ const ProductionNotes = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-flow-row grid-cols-2 mt-[15px] gap-x-3">
-        <div>
-          {notes.slice(0, 4).map((i, k) => {
-            return (
-              <div key={k} className={classnames("border")}>
-                <ActiveBar name={i.name} icon={i.icon} iconName={i.iconName} />
-              </div>
-            );
-          })}
+      <div className="grid grid-flow-row md:grid-cols-2 grid-cols-1 md:gap-3">
+        <div className="grid grid-flow-row grid-cols-1 md:mt-[15px]">
+          <div>
+            {notescol1.map((i, k) => {
+              return (
+                <div key={k} className={classnames("border")}>
+                  <InputArea
+                    placeholder={i.name}
+                    icon={i.icon}
+                    iconName={i.iconName}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <div>
-          {notes.slice(4, 9).map((i, k) => {
-            return (
-              <div key={k} className="border">
-                <ActiveBar name={i.name} icon={i.icon} iconName={i.iconName} />
-              </div>
-            );
-          })}
+        <div className="grid grid-flow-row grid-cols-1 md:mt-[15px] ">
+          <div>
+            {notescol2.map((i, k) => {
+              return (
+                <div key={k} className={classnames("border")}>
+                  <InputArea
+                    placeholder={i.name}
+                    icon={i.icon}
+                    iconName={i.iconName}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

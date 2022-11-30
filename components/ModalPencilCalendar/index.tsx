@@ -67,7 +67,7 @@ export const ModalPencilCalendar = ({
               <InputText
                 key={item.name}
                 inputName={item.name}
-                icon={item.icon}
+                required={item.icon}
               />
             )
           )}

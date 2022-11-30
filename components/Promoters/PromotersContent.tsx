@@ -28,7 +28,7 @@ const PromotersContent = () => {
               <div className="text-white font-light">Promoter Details</div>
             </div>
             <div className="mt-5">
-              <InputText inputName={"Name"} icon={true} />
+              <InputText inputName={"Name"} required={true} />
               <InputText inputName={"VAT"} />
               <InputText inputName={"Name in Deal"} />
               <textarea
@@ -55,17 +55,17 @@ const PromotersContent = () => {
               <div className="text-white font-light">Contact Info</div>
             </div>
             <div className="mt-5">
-              <InputText inputName={"Email 1"} icon={true} />
+              <InputText inputName={"Email 1"} required={true} />
               <InputText inputName={"Email 2"} />
-              <InputText inputName={"Telephone 1"} icon={true} />
+              <InputText inputName={"Telephone 1"} required={true} />
               <InputText inputName={"Telephone 2"} />
               <InputText inputName={"Fax 1"} />
               <InputText inputName={"Fax 2"} />
-              <InputText inputName={"Address Line 1"} icon={true} />
+              <InputText inputName={"Address Line 1"} required={true} />
               <InputText inputName={"Address Line 2"} />
-              <InputText inputName={"Postcode"} icon={true} />
-              <InputText inputName={"City"} icon={true} />
-              <InputText inputName={"Country"} icon={true} />
+              <InputText inputName={"Postcode"} required={true} />
+              <InputText inputName={"City"} required={true} />
+              <InputText inputName={"Country"} required={true} />
               <div className="flex">
                 <label className="text-sm text-slate-400 flex w-2/5 h-10 py-2 pl-5 border border-[#dddddd] pb-8">
                   Country

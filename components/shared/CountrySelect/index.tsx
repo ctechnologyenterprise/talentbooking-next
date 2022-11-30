@@ -1,7 +1,12 @@
+import clsxm from "@libs/clsxm";
 import { useEffect, useState } from "react";
 import Select from "react-select";
 
-export const CountrySelect = () => {
+type countrySelectProp = {
+  className?: string;
+};
+
+export const CountrySelect = ({ className }: countrySelectProp) => {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState({});
 
@@ -18,7 +23,7 @@ export const CountrySelect = () => {
   return (
     <Select
       options={countries}
-      className="w-3/5"
+      className={clsxm("w-3/5", className)}
       styles={{
         control: (baseStyles, state) => ({
           ...baseStyles,
@@ -26,8 +31,10 @@ export const CountrySelect = () => {
           height: "42px",
           borderRadius: 0,
           borderWidth: 0,
+          borderTopWidth: "1px",
           borderRightWidth: "1px",
-          borderBottomWidth: "1px",
+          borderTopColor: "#ddd",
+          borderRightColor: "#ddd",
           "&:hover": {
             borderLeftColor: "#ddd",
           },

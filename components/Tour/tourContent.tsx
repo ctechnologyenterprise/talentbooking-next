@@ -34,11 +34,11 @@ const TourContent = ({ formModalAddShow }: TourProp) => {
             </button>
           </div>
           <div className="mt-5" />
-          <InputText inputName={"Tour Name"} icon={true} />
+          <InputText inputName={"Tour Name"} required={true} />
           <div className="mt-5" />
-          <InputText inputName={"Artist"} icon={true} />
+          <InputText inputName={"Artist"} required={true} />
           <div className="mt-5" />
-          <InputText inputName={"Agent(s)"} icon={true} />
+          <InputText inputName={"Agent(s)"} required={true} />
         </div>
 
         <div className="mt-5">

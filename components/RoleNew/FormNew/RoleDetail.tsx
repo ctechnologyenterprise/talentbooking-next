@@ -7,7 +7,7 @@ const RoleDetail = () => {
         <div className="text-white">Role Details</div>
       </div>
       <div className="mt-5" />
-      <InputText inputName={"Name"} icon={true} />
+      <InputText inputName={"Name"} required={true} />
       <textarea
         placeholder="Description"
         className="w-full h-24 pl-5 pt-2 border border-t-0 border-[#dddddd]"

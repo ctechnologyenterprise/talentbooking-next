@@ -33,9 +33,9 @@ const ArtistContent = () => {
               <div className="text-white font-light">Artist Details</div>
             </div>
             <div className="mt-5">
-              <InputText inputName={"Name"} icon={true} />
-              <InputText inputName={"Real Name(s)"} icon={true} />
-              <InputText inputName={"Initials"} icon={true} />
+              <InputText inputName={"Name"} required={true} />
+              <InputText inputName={"Real Name(s)"} required={true} />
+              <InputText inputName={"Initials"} required={true} />
               <InputText inputName={"Website"} />
               <InputArea placeholder="Social" />
               <div className="flex">

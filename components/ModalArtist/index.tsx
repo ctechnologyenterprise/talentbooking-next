@@ -47,7 +47,11 @@ export const ModalArtists = ({ formModalArtist }: Props) => {
         <div className="h-0.5 bg-[#dddddd] mt-2" />
         <div className="w-11/12 m-auto mt-5 overflow-y-auto h-full">
           {items.map((item) => (
-            <InputText key={item.name} inputName={item.name} icon={item.icon} />
+            <InputText
+              key={item.name}
+              inputName={item.name}
+              required={item.icon}
+            />
           ))}
           <div className="flex">
             <label className="text-sm text-slate-400 flex w-2/5 h-10 py-2 pl-5 border border-[#dddddd] pb-8">
