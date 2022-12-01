@@ -2,6 +2,7 @@ import clsxm from "@libs/clsxm";
 import Select from "react-select";
 
 export type Props = {
+  placeholder?: string;
   selectLabel: string;
   onSelect(value: any): void;
   options: ListOption[];
@@ -17,6 +18,7 @@ export type ListOption = {
 };
 
 export const SelectForm = ({
+  placeholder,
   selectLabel,
   onSelect,
   options,
@@ -34,9 +36,10 @@ export const SelectForm = ({
     >
       <label className={clsxm("w-2/5 pl-3 text-base flex", classNameLabel)}>
         {selectLabel}{" "}
-        {icon && <div className="text-[red] text-2xl ml-1 font-thin">*</div>}
+        {icon && <div className="text-[red] ml-1 font-thin">*</div>}
       </label>
       <Select
+        placeholder={placeholder}
         className={clsxm("w-3/5", classNameSelect)}
         options={options}
         onChange={onSelect}

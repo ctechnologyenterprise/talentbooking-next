@@ -11,7 +11,7 @@ const Shows = () => {
         <ButtonLink
           linkTo="/administrators/form"
           icon={<FileIcon />}
-          label="New Contract"
+          label="New Shows"
         />
         <ButtonLink
           linkTo="/administrators/form"
@@ -27,7 +27,7 @@ const Shows = () => {
     );
   }, []);
   return (
-    <Content title="New Contract" leftContent={headerButtons}>
+    <Content title="New Shows" leftContent={headerButtons}>
       <div className="h-screen">Shows</div>
     </Content>
   );

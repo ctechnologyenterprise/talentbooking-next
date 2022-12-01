@@ -1,6 +1,8 @@
+import clsxm from "@libs/clsxm";
 import Select from "react-select";
 
 export type Props = {
+  classNameHeader?: string;
   searchHolder: string;
   searchLabel: string;
   options1: ListOption[];
@@ -16,6 +18,7 @@ export type ListOption = {
 };
 
 export const SearchAndOrder = ({
+  classNameHeader,
   searchHolder,
   searchLabel,
   options1,
@@ -29,7 +32,12 @@ export const SearchAndOrder = ({
 }: Props) => {
   return (
     <div>
-      <h3 className="mb-4 ml-2 text-[#460465] text-2xl font-extralight">
+      <h3
+        className={clsxm(
+          "mb-4 ml-2 text-[#460465] text-2xl font-extralight",
+          classNameHeader
+        )}
+      >
         Search and Order
       </h3>
       <div className="flex w-full">
@@ -94,6 +102,7 @@ export const SearchAndOrder = ({
               width: "100%",
               borderRadius: 0,
               borderWidth: 0,
+              borderRightWidth: "1px",
               borderLeftWidth: "1px",
               borderBottomWidth: "1px",
               "&:hover": {

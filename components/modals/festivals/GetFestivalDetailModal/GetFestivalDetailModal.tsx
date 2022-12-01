@@ -6,9 +6,8 @@ import clsxm from "@libs/clsxm";
 import Modal from "react-modal";
 
 import { TYPE_INPUT } from "constants/enum";
-import "./BookingPencilModal.module.css";
-import styles from "./BookingPencilModal.module.css";
 import PlusSignIcon from "@public/svgs/PlusSignIcon";
+import PromoterIcon from "@public/svgs/PromoterIcon";
 
 export type Props = {
   isOpen: boolean;
@@ -69,7 +68,7 @@ const checkTypeInput = (
   }
 };
 
-const PencilModal = ({ isOpen, className, setIsOpen }: Props) => {
+const GetFestivalDetailModal = ({ isOpen, className, setIsOpen }: Props) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -81,60 +80,63 @@ const PencilModal = ({ isOpen, className, setIsOpen }: Props) => {
       shouldCloseOnOverlayClick={true}
       style={{
         overlay: {
-          backgroundColor: "rgba(0, 0, 0, 0.3)",
+          backgroundColor: "unset",
           zIndex: 10000,
         },
         content: {
           position: "absolute",
-          width: "60%",
-          inset: "10% 0 10% 20%",
+          width: "30%",
+          inset: "10% 0 10% 35%",
           background: "#fff",
           overflow: "auto",
           border: "none",
           WebkitOverflowScrolling: "touch",
           borderRadius: "0px",
           outline: "none",
-          boxShadow: "0 5px 15px rgb(0 0 0 / 50%)",
-          padding: "20px",
+          boxShadow: "0 5px 10px rgb(0 0 0 / 10%)",
+          padding: "0",
         },
       }}
     >
-      <div className={clsxm(styles.modal, className)}>
-        <div className="flex">
-          <button
-            className="w-[70px] h-[34px] border border-[#ece0f3] bg-[#f7f2fa] hover:boder-[#d0b3e2] hover:bg-hover-modal-button"
-            onClick={() => setIsOpen(false)}
-          >
-            <p className="text-[14px] font-light">Cancel</p>
-          </button>
-          <div className="w-200 m-auto text-[18px] font-extralight text-[#460465]">
-            Pencil
+      <div>
+        <div className="grid grid-cols-1 divide-y">
+          <div className="flex justify-left px-3 py-5 items-center text-[#460465] text-[18px] font-light">
+            Bruno Mars Just give me a reason
           </div>
-          <button
-            className="bg-[#f7f2fa] w-[70px] h-[34px] border border-[#ece0f3] hover:boder-[#d0b3e2] hover:bg-hover-modal-button"
-            onClick={() => setIsOpen(false)}
-          >
-            <p className="text-[14px] font-light text-[#460465]">Save</p>
-          </button>
-        </div>
-        <div className="h-[1px] bg-[#dddddd] mt-2 mb-[30px]" />
-        <div className="w-11/12 m-auto mt-5">
-          {items.map((item) => (
-            <div key={item.name}>
-              {checkTypeInput(
-                item.typeInput,
-                item.name,
-                item.required,
-                item.icon,
-                item.iconName
-              )}
+          <div className="px-[25px] py-[10px]">
+            <div className="flex items-center space-x-1">
+              <div>
+                <PromoterIcon width="0.85em" height="0.85em" fill="#999" />
+              </div>
+              <div className="text-[14px] text-[#999]">Promoter(s)</div>
             </div>
-          ))}
-          <div className="mt-5" />
+            <div className="w-full px-[30px] text-[14px]">
+              <div className="flex space-x-3">
+                <p className="text-[#999]">Name</p>
+                <p>bebas</p>
+              </div>
+              <div className="flex space-x-3">
+                <p className="text-[#999]">Email 1</p>
+                <p>test@gmail.com</p>
+              </div>
+              <div className="flex space-x-3">
+                <p className="text-[#999]">Email 2</p>
+                <p>r@gmail.com</p>
+              </div>
+              <div className="flex space-x-3">
+                <p className="text-[#999]">Phone 1</p>
+                <p>3445232</p>
+              </div>
+              <div className="flex space-x-3">
+                <p className="text-[#999]">Phone 2</p>
+                <p>23526332</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </Modal>
   );
 };
 
-export default PencilModal;
+export default GetFestivalDetailModal;

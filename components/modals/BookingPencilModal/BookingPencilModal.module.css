@@ -19,21 +19,3 @@
 .closeModal {
   text-align: right;
 }
-
-.content-base {
-  transition-property: background-color, width, height;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
-}
-
-.content-after {
-  width: 70%;
-  height: 40%;
-  background-color: rgba(250, 190, 190, 0.8);
-}
-
-.content-before {
-  width: 0%;
-  height: 0%;
-  background-color: transparent;
-}

@@ -58,7 +58,9 @@ const ContractsForms = () => {
           </div>
           <div className=" w-[370px] flex justify-between border">
             <SelectForm
+              placeholder=""
               classNameContainer="w-[370px]"
+              classNameLabel="flex items-center justify-center text-[14px]"
               icon={true}
               options={[
                 { value: "artist", label: "Artist" },

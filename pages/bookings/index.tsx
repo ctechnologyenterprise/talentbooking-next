@@ -179,7 +179,7 @@ const Booking = () => {
               <tr className="font-normal md:contents hidden">
                 {tableHeader.map((i, k) => {
                   return (
-                    <th key={k} className="font-semibold text-xs py-2 ">
+                    <th key={k} className="font-normal text-xs py-2 ">
                       {i}
                     </th>
                   );
