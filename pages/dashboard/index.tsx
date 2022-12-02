@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   return (
     <Content title="Dashboard" leftContent={headerButtons}>
-      <div className="w-screen">Dashboard</div>
+      <div>Dashboard</div>
     </Content>
   );
 };

@@ -55,7 +55,7 @@ export const ModalPencil = ({ formModalAddPencilled }: Props) => {
         <div className="w-11/12 m-auto mt-5 overflow-y-auto h-full">
           {items.map((item) =>
             item.name === COUNTRY ? (
-              <div className="flex">
+              <div className="flex" key={item.name}>
                 <label className="text-sm text-slate-400 flex w-2/5 h-10 py-2 pl-5 border border-[#dddddd] pb-8">
                   Country
                   <div className="text-[red] text-2xl ml-1 font-thin">*</div>

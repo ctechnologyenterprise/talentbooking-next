@@ -4,13 +4,13 @@ import clsxm from "@libs/clsxm";
 import styles from "@styles/Home.module.css";
 import classNames from "classnames";
 import Image from "next/image";
-import Link from "next/link";
-import { MouseEventHandler, useCallback } from "react";
+import { MouseEventHandler } from "react";
 import { DropdownList } from "./shared/DropDownList/DropDownList";
 
 type headerProps = {
   isCollapsed: boolean;
-  onToggleCollapsed: MouseEventHandler<SVGSVGElement>;
+  onToggleSidebar: MouseEventHandler<SVGSVGElement>;
+  handleLogout: (e: any) => void;
 };
 
 const listItemDropDown = [
@@ -20,8 +20,12 @@ const listItemDropDown = [
   },
 ];
 
-const Header = ({ isCollapsed, onToggleCollapsed }: headerProps) => {
-  const headerWrapperClass = classNames(
+const Header = ({
+  isCollapsed,
+  onToggleSidebar,
+  handleLogout,
+}: headerProps) => {
+  const mainContainer = classNames(
     "fixed flex py-[8px] float-none right-0 w-screen items-center bg-[#460465] border-[#300345] transition-all duration-300 z-[100]",
     {
       ["w-screen"]: !isCollapsed,
@@ -29,16 +33,13 @@ const Header = ({ isCollapsed, onToggleCollapsed }: headerProps) => {
     }
   );
 
-  const handleSelect = useCallback(() => {
-    console.log("signout");
-  }, []);
   return (
     <div>
-      <div className={clsxm(styles.wrapperItems, headerWrapperClass)}>
+      <div className={clsxm(styles.wrapperItems, mainContainer)}>
         <div className="md:px-[15px] pl-[10px]">
           <FontAwesomeIcon
-            onClick={onToggleCollapsed}
-            className="md:pl-2.5"
+            onClick={onToggleSidebar}
+            className="md:pl-2.5 cursor-pointer"
             icon={faBars}
             color="#fff"
             size="2x"
@@ -51,7 +52,7 @@ const Header = ({ isCollapsed, onToggleCollapsed }: headerProps) => {
         <div className="absolute right-0">
           <DropdownList
             isHeader
-            onSelect={handleSelect}
+            onSelect={handleLogout}
             options={listItemDropDown}
           />
         </div>

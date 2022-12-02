@@ -11,6 +11,7 @@ import PencilIcon from "@public/svgs/PencilIcon";
 import RemoveIcon from "@public/svgs/RemoveIcon";
 import classNames from "classnames";
 import dayjs from "dayjs";
+import useVisible from "hooks/useVisible";
 import { useCallback, useState } from "react";
 import Select from "react-select";
 
@@ -77,10 +78,10 @@ const daysInMonth = () => {
 
 const Booking = () => {
   const dayOfWeek = daysInMonth();
-  const [isOpenModal, setOpenModal] = useState<boolean>(false);
+  const detailModal = useVisible(false);
 
-  const BookingWrapperClass = classNames("px-[30px]", {
-    ["fixed"]: isOpenModal == true,
+  const mainContainer = classNames("px-[30px]", {
+    ["fixed"]: detailModal.visible,
   });
 
   const headerButtons = useCallback(() => {
@@ -102,12 +103,13 @@ const Booking = () => {
 
   return (
     <Content title="Bookings" leftContent={headerButtons}>
-      <div className={BookingWrapperClass}>
+      <div className={mainContainer}>
         <div className="grid grid-flow-row grid-cols-2">
           <div className="hidden md:flex justify-start items-center">
             <div className="cursor-pointer">
               <ChevronLeftIcon />
             </div>
+
             <div className="pb-5">
               <section className="static mt-[20px] ">
                 <div>
@@ -206,7 +208,7 @@ const Booking = () => {
                       <div className="flex bg-[#e9e6ec] py-2 justify-around">
                         <button
                           className="pl-[20px]"
-                          onClick={() => setOpenModal(true)}
+                          onClick={detailModal.show}
                         >
                           <PencilIcon />
                         </button>
@@ -278,8 +280,12 @@ const Booking = () => {
           </div>
         </div>
       </div>
-      {isOpenModal && (
-        <BookingPencilModal setIsOpen={setOpenModal} isOpen={isOpenModal} />
+
+      {detailModal.visible && (
+        <BookingPencilModal
+          onHide={detailModal.hide}
+          isOpen={detailModal.visible}
+        />
       )}
     </Content>
   );

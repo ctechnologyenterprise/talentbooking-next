@@ -18,7 +18,6 @@ import styles from "@styles/Sidebar.module.css";
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Ref } from "react";
 
 export const sidebarItems = [
   { id: 1, label: "Dashboard", link: "/dashboard", icon: HouseIcon },

@@ -12,7 +12,7 @@ import PlusSignIcon from "@public/svgs/PlusSignIcon";
 
 export type Props = {
   isOpen: boolean;
-  setIsOpen: (val: boolean) => void;
+  onHide: () => void;
   className?: string;
 };
 
@@ -69,14 +69,12 @@ const checkTypeInput = (
   }
 };
 
-const PencilModal = ({ isOpen, className, setIsOpen }: Props) => {
+const PencilModal = ({ isOpen, className, onHide }: Props) => {
   return (
     <Modal
       isOpen={isOpen}
       closeTimeoutMS={500}
-      onRequestClose={() => {
-        setIsOpen(false);
-      }}
+      onRequestClose={onHide}
       preventScroll
       shouldCloseOnOverlayClick={true}
       style={{
@@ -103,7 +101,7 @@ const PencilModal = ({ isOpen, className, setIsOpen }: Props) => {
         <div className="flex">
           <button
             className="w-[70px] h-[34px] border border-[#ece0f3] bg-[#f7f2fa] hover:boder-[#d0b3e2] hover:bg-hover-modal-button"
-            onClick={() => setIsOpen(false)}
+            onClick={onHide}
           >
             <p className="text-[14px] font-light">Cancel</p>
           </button>
@@ -112,7 +110,7 @@ const PencilModal = ({ isOpen, className, setIsOpen }: Props) => {
           </div>
           <button
             className="bg-[#f7f2fa] w-[70px] h-[34px] border border-[#ece0f3] hover:boder-[#d0b3e2] hover:bg-hover-modal-button"
-            onClick={() => setIsOpen(false)}
+            onClick={onHide}
           >
             <p className="text-[14px] font-light text-[#460465]">Save</p>
           </button>

@@ -9,24 +9,24 @@ import Sidebar from "./sidebar";
 type Props = {
   children?: ReactNode;
   title?: string;
+  handleLogout: (e: any) => void;
 };
 
-function Layout({ children, title = "Talent Booking" }: Props) {
-  const toggleSidebar = useVisible(false);
-  const layoutWrapperClass = classNames(
+function Layout({ children, title = "Talent Booking", handleLogout }: Props) {
+  const sidebar = useVisible(false);
+  const mainContainer = classNames(
     "bg-white pt-[3rem] md:right-0 w-screen transition-all duration-300 z-10 mb-[100px]",
     {
-      ["w-screen "]: !toggleSidebar.visible,
-      ["fixed  md:w-[calc(100%_-_140px)] bg-neutral-900/40"]:
-        toggleSidebar.visible,
+      ["w-screen"]: !sidebar.visible,
+      ["fixed md:w-[calc(100%_-_140px)] bg-neutral-900/40"]: sidebar.visible,
     }
   );
 
-  const handleClick = useCallback(async () => {
-    if (document.hasFocus() && toggleSidebar.visible) {
-      toggleSidebar.toggle();
+  const onToggle = useCallback(async () => {
+    if (document.hasFocus() && sidebar.visible) {
+      sidebar.toggle();
     }
-  }, [toggleSidebar]);
+  }, [sidebar]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -42,22 +42,22 @@ function Layout({ children, title = "Talent Booking" }: Props) {
 
       <div>
         <Header
-          isCollapsed={toggleSidebar.visible}
-          onToggleCollapsed={toggleSidebar.toggle}
+          isCollapsed={sidebar.visible}
+          onToggleSidebar={sidebar.toggle}
+          handleLogout={handleLogout}
         />
 
         <Sidebar
-          onClick={handleClick}
-          isFocus={!toggleSidebar.visible}
-          isCollapsed={toggleSidebar.visible}
+          onClick={onToggle}
+          isFocus={!sidebar.visible}
+          isCollapsed={sidebar.visible}
         />
       </div>
 
       <main
-        className={clsxm(
-          toggleSidebar.visible ? "main" : "",
-          layoutWrapperClass
-        )}
+        className={clsxm(mainContainer, {
+          ["main"]: sidebar.visible,
+        })}
       >
         {children}
       </main>
