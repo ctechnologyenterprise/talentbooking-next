@@ -52,14 +52,12 @@ type sidebarProps = {
   isCollapsed: boolean;
   isFocus: boolean;
   onClick: () => void;
-  ref: Ref<HTMLAnchorElement>;
 };
 
 export default function Sidebar({
   isCollapsed,
   isFocus,
   onClick,
-  ref,
 }: sidebarProps) {
   const router = useRouter();
   const sidebarWrapperClass = classNames(
@@ -85,7 +83,6 @@ export default function Sidebar({
               sidebarItemClass
             )}
             href={menu.link}
-            ref={ref}
             onClick={onClick}
           >
             <div className="flex">

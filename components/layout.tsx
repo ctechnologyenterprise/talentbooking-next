@@ -2,8 +2,7 @@ import clsxm from "@libs/clsxm";
 import classNames from "classnames";
 import useVisible from "hooks/useVisible";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import React, { ReactNode, useCallback, useRef } from "react";
+import { ReactNode, useCallback } from "react";
 import Header from "./header";
 import Sidebar from "./sidebar";
 
@@ -13,11 +12,7 @@ type Props = {
 };
 
 function Layout({ children, title = "Talent Booking" }: Props) {
-  const router = useRouter();
-  const url = router.pathname;
-
   const toggleSidebar = useVisible(false);
-  const ref = useRef<HTMLAnchorElement>(null);
   const layoutWrapperClass = classNames(
     "bg-white pt-[3rem] md:right-0 w-screen transition-all duration-300 z-10 mb-[100px]",
     {
@@ -52,7 +47,6 @@ function Layout({ children, title = "Talent Booking" }: Props) {
         />
 
         <Sidebar
-          ref={ref}
           onClick={handleClick}
           isFocus={!toggleSidebar.visible}
           isCollapsed={toggleSidebar.visible}
@@ -71,4 +65,4 @@ function Layout({ children, title = "Talent Booking" }: Props) {
   );
 }
 
-export default React.forwardRef(Layout);
+export default Layout;

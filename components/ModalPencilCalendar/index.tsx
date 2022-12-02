@@ -71,7 +71,6 @@ export const ModalPencilCalendar = ({
               />
             )
           )}
-
           <div className="mt-5" />
         </div>
       </div>
